@@ -317,7 +317,7 @@ hr.signLine {
 
 
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 800px){
 /* -------- GENERAL GRID (MOBILE) -------- */ 
 
 /* 
@@ -335,7 +335,7 @@ hr.signLine {
     display: grid;
     grid-template-rows: 15% 20% 20% 21% 22% 2%;
     grid-template-columns: 45% 10% 45%;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
 }
 .headerGrid {
