@@ -316,39 +316,6 @@ hr.signLine {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media only screen and (max-width: 900px) {
 
     .generalGrid {
@@ -581,51 +548,7 @@ hr.signLine {
         border: 0.5px solid var(--violeta-medio);
     }
     
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media only screen and (max-width: 600px) {
