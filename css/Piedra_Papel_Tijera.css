@@ -44,9 +44,9 @@ body {
 
 .generalGrid {
     display: grid;
-    grid-template-rows: 30% 38% 28% 4%;
-    grid-template-columns: 22% 23% 10% 23% 22%;
-    height: 100vh;
+    grid-template-rows: 1fr 1fr 1fr 0.1fr;
+    grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr;
+    height: 100%;
     width: 100vw;
 }
 .headerGrid {
@@ -54,7 +54,7 @@ body {
     grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 .optionGrid {
@@ -102,7 +102,7 @@ body {
     grid-row: 3 / 4;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 .scoreGrid {
@@ -333,8 +333,8 @@ hr.signLine {
 
 .generalGrid {
     display: grid;
-    grid-template-rows: 15% 20% 20% 21% 22% 2%;
-    grid-template-columns: 45% 10% 45%;
+    grid-template-rows: 0.75fr 0.75fr 1fr 0.9fr 1fr 0.1fr;
+    grid-template-columns: 4.5fr 1fr 4.5fr;
     height: 100%;
     width: 100vw;
 }
@@ -344,7 +344,7 @@ hr.signLine {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 .optionGrid {
     grid-column: 1 / 4;
@@ -393,7 +393,7 @@ hr.signLine {
     grid-row: 4 / 5;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 .scoreGrid {
@@ -444,7 +444,6 @@ hr.signLine {
 /* -------- HEADER -------- */
 
 .title {
-    height: 12vh;
     width: 65vw;
 }
 
