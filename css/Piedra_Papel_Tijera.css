@@ -44,10 +44,10 @@ body {
 
 .generalGrid {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 0.1fr;
-    grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.85fr 0.1fr;
+    grid-template-columns: 1.15fr 1fr 0.5fr 1fr 1.15fr;
     height: 100%;
-    width: 100vw;
+    width: 100%;
 }
 .headerGrid {
     grid-column: 2 / 5;
@@ -317,7 +317,7 @@ hr.signLine {
 
 
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 900px){
 /* -------- GENERAL GRID (MOBILE) -------- */ 
 
 /* 
@@ -444,7 +444,7 @@ hr.signLine {
 /* -------- HEADER -------- */
 
 .title {
-    width: 65vw;
+    width: 45vw;
 }
 
 
@@ -545,3 +545,89 @@ hr.signLine {
 }
 
 }
+
+
+
+
+@media only screen and (max-width: 450px){
+    /* -------- GENERAL GRID (MOBILE) -------- */ 
+    
+    /* 
+    (1) HEADER  (2)  HEADER (3)  HEADER (4)
+    (2) OPTION       OPTION      OPTION
+    (3) USER         VS          MACHINE     
+    (4) FOOTER       FOOTER      FOOTER
+    (5) SCORE        SCORE       SCORE
+    (6) SIGN         SIGN        SIGN
+    (7)
+    */
+    
+    
+    .generalGrid {
+        display: grid;
+        grid-template-rows: 0.65fr 0.75fr 0.75fr 0.8fr 1fr 0.1fr;
+        grid-template-columns: 4.5fr 1fr 4.5fr;
+        height: 100%;
+        width: 100vw;
+    }
+    
+    /* -------- OPTION -------- */
+    
+    .textOptionScore {
+        display: none;
+    }
+    
+    /* -------- HEADER -------- */
+    
+    .title {
+        width: 65vw;
+    }
+
+    /* -------- useVsMachine -------- */
+    
+    #human {
+        width: 2vw;
+    }
+    .vs {
+        width: 15vw;
+    }
+    #machine {
+        width: 2vw;
+    }
+    .iconosPlayers {
+        height: 8em;
+        position:relative;
+    }
+    
+    /* -------- FOOTER -------- */
+    
+    .boton {
+        background-color: var(--violeta-medio);
+        border: 0.01em var(--violeta-medio) solid;
+        color: var(--violeta-claro);
+        border-radius: 0.5em;
+        font-weight: 900;
+        font-size: 1em;
+        padding: 0.25em 1em;
+        margin: 1em 0em 0em 0em;
+        cursor: pointer;
+    }
+    .boton:hover {
+        background-color: var(--violeta-claro);
+        border: 0.01em var(--violeta-claro) solid;
+        color: var(--violeta-medio);
+    }
+    #textoResultado { 
+        font-size: 2em;
+        padding-top: 0.15em;
+        padding-bottom: 0.35em;
+    }
+    #descriptiveText { 
+        font-size: 0.5em;
+        padding-bottom: 0.15em;
+    }
+    #descriptiveText-mini {
+        font-size: 0.75em;
+        padding-top: 1.5em;
+    }
+    }
