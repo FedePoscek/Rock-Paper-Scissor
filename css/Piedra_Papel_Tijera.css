@@ -225,6 +225,7 @@ body {
     margin: 1em 0em 0em 0em;
     cursor: pointer;
     text-decoration: none;
+    -webkit-appearance: none;
 }
 .boton:hover {
     background-color: var(--violeta-claro);
