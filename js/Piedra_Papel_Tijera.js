@@ -1,4 +1,4 @@
-//var opciones = ["piedra", "papel", "tijera"];
+// var opciones = ["piedra", "papel", "tijera"];
 var opciones = [0, 1, 2];
 var eleccionMaquina;
 var contadorHumano = 1;
@@ -12,43 +12,40 @@ function aleatorio(min, max){
 function Humano(eleccionHumano) {
     eleccionHumano = parseInt(eleccionHumano);
     eleccionMaquina = aleatorio(0,2);
-    //alert(eleccionUsuario);
-    //alert(eleccionMaquina);
+    document.getElementById('descriptiveText').innerHTML = '(click in one of 3 options to continue playing!)';
 
-    if(eleccionHumano == 0) { //el usuario eligio piedra 
+    if(eleccionHumano == 0) { // humano eligió piedra 
         document.getElementById('user').src='svg/rockstar_main.svg';
-        if (opciones[eleccionMaquina] == 1) { //si la maquina eligio papel 
+        
+        if (opciones[eleccionMaquina] == 1) { // maquina eligio papel 
             var contador = document.getElementById('textoResultado');
             contador.innerHTML = 'YOU LOOSE!';
             contador.style.color = 'var(--rojo)';
             document.getElementById('contadorM').innerHTML = 'MACHINE';
             document.getElementById('numberCounterM').innerHTML = contadorMaquina++;
             document.getElementById('robot').src='svg/toilet-paper_main.svg';
-            // document.body.style.backgroundColor = 'pink';
         } else {
-            if (opciones[eleccionMaquina] == 2) { //si la maquina eligio tijera 
+            if (opciones[eleccionMaquina] == 2) { // maquina eligio tijera 
                 var contador = document.getElementById('textoResultado');
                 contador.innerHTML = 'YOU WIN!';
                 contador.style.color = 'var(--verde)';
                 document.getElementById('contadorH').innerHTML = 'HUMAN';
                 document.getElementById('numberCounterH').innerHTML = contadorHumano++;
                 document.getElementById('robot').src='svg/scissor_main.svg';
-                // document.body.style.backgroundColor = 'yellow';
             } else {
-                if (opciones[eleccionMaquina] == 0) { //si la maquina eligio piedra 
+                if (opciones[eleccionMaquina] == 0) { // maquina eligio piedra 
                     var contador = document.getElementById('textoResultado');
                     contador.innerHTML = 'IT\'S A TIE!';
                     contador.style.color = 'var(--blanco)';
                     document.getElementById('robot').src='svg/rockstar_main.svg';
-                    // document.body.style.backgroundColor = 'brown';
                 }
             }
         } 
     }
 
-    if (eleccionHumano == 1) { //el usuario eligio papel 
+    if (eleccionHumano == 1) { // humano eligió papel 
         document.getElementById('user').src='svg/toilet-paper_main.svg';
-        if (opciones[eleccionMaquina] == 2) { //si la maquina eligio tijera 
+        if (opciones[eleccionMaquina] == 2) { // máquina eligió tijera 
             var contador = document.getElementById('textoResultado');
             contador.innerHTML = 'YOU LOOSE!';
             contador.style.color = 'var(--rojo)';
@@ -56,7 +53,7 @@ function Humano(eleccionHumano) {
             document.getElementById('numberCounterM').innerHTML = contadorMaquina++;
             document.getElementById('robot').src='svg/scissor_main.svg';
         } else {
-            if (opciones[eleccionMaquina] == 0) { //si la maquina eligio piedra 
+            if (opciones[eleccionMaquina] == 0) { // máquina eligió piedra 
                 var contador = document.getElementById('textoResultado');
                 contador.innerHTML = 'YOU WIN!';
                 contador.style.color = 'var(--verde)';
@@ -64,7 +61,7 @@ function Humano(eleccionHumano) {
                 document.getElementById('numberCounterH').innerHTML = contadorHumano++;
                 document.getElementById('robot').src='svg/rockstar_main.svg';
             } else {
-                if (opciones[eleccionMaquina] == 1) { //si la maquina eligio papel 
+                if (opciones[eleccionMaquina] == 1) { // máquina eligió papel 
                     var contador = document.getElementById('textoResultado');
                     contador.innerHTML = 'IT\'S A TIE!';
                     contador.style.color = 'var(--blanco)';
@@ -74,9 +71,9 @@ function Humano(eleccionHumano) {
         }
     }
 
-    if (eleccionHumano == 2) { //el usuario eligio tijera 
+    if (eleccionHumano == 2) { // humano eligió tijera 
         document.getElementById('user').src='svg/scissor_main.svg';
-        if (opciones[eleccionMaquina] == 1) { //si la maquina eligio papel 
+        if (opciones[eleccionMaquina] == 1) { // máquina eligió papel 
             var contador = document.getElementById('textoResultado');
                 contador.innerHTML = 'YOU WIN!';
                 contador.style.color = 'var(--verde)';
@@ -85,7 +82,7 @@ function Humano(eleccionHumano) {
                 document.getElementById('robot').src='svg/toilet-paper_main.svg';
         
         } else {
-            if (opciones[eleccionMaquina] == 0) { //si la maquina eligio piedra 
+            if (opciones[eleccionMaquina] == 0) { // máquina eligió piedra 
                 var contador = document.getElementById('textoResultado');
                 contador.innerHTML = 'YOU LOOSE!';
                 contador.style.color = 'var(--rojo)';
@@ -94,7 +91,7 @@ function Humano(eleccionHumano) {
                 document.getElementById('robot').src='svg/rockstar_main.svg';
  
             } else {
-                if (opciones[eleccionMaquina] == 2) { //si la maquina eligio tijera 
+                if (opciones[eleccionMaquina] == 2) { // máquina eligió tijera 
                     var contador = document.getElementById('textoResultado');
                     contador.innerHTML = 'IT\'S A TIE!';
                     contador.style.color = 'var(--blanco)';
@@ -122,13 +119,7 @@ function Humano(eleccionHumano) {
     }
     };
 }
-   //  document.getElementById('efecto').style.display = "";
-
 
 function funcionRecarga() {
     location.reload();
 }
-
-// function quitarEfecto() {
-   // document.getElementById('efecto').style.display = "none";
-//}
