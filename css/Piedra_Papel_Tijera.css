@@ -227,6 +227,7 @@ body {
     margin: 1em 0em 0em 0em;
     cursor: pointer;
     text-decoration: none;
+    appearance: none;
     -webkit-appearance: none;
 }
 .boton:hover {
