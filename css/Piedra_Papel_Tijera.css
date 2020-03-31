@@ -219,6 +219,8 @@ body {
     border: 0.01em var(--violeta-medio) solid;
     color: var(--violeta-claro);
     border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
     font-weight: 900;
     font-size: 1.25em;
     padding: 0.5em 1em;
