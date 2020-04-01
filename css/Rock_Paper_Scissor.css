@@ -209,7 +209,7 @@ body {
 #machine {
     width: 23vw;
 }
-.iconosPlayers {
+.iconsPlayers {
     height: 15em;
     position:relative;
 }
@@ -460,7 +460,7 @@ hr.signLine {
     #machine {
         width: 23vw;
     }
-    .iconosPlayers {
+    .iconsPlayers {
         height: 8em;
         position:relative;
     }
@@ -700,7 +700,7 @@ hr.signLine {
 #machine {
     width: 2vw;
 }
-.iconosPlayers {
+.iconsPlayers {
     height: 10em;
     position:relative;
 }
@@ -835,7 +835,7 @@ hr.signLine {
     #machine {
         width: 2vw;
     }
-    .iconosPlayers {
+    .iconsPlayers {
         height: 8em;
         position:relative;
     }
@@ -874,7 +874,7 @@ hr.signLine {
     }
 
 
-    #efecto {
+    #finalScreen {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -886,10 +886,17 @@ hr.signLine {
         font-weight: 900;
         font-size: 15vh;
         margin: auto;
-        padding: 30vh 0;
+        padding-top: 40vh;
     }
-
     h3 {
-        color: yellow;
-        font-size: 10vh;
+        color: var(--blanco);
+        font-size: 5vh;
+        font-weight: 900;
+        padding-bottom: 2vh;
+
+    }
+    h5 {
+        color: var(--blanco);
+        font-size: 2vh;
+        font-weight: 700; 
     }

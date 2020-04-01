@@ -41,13 +41,13 @@
 
     <div class="userVsMachineGrid">
         <div id="human" class="humanGrid">
-            <img id="user" class="iconosPlayers" src="svg/user_main.svg">
+            <img id="user" class="iconsPlayers" src="svg/user_main.svg">
         </div>
         <div class="vsGrid">
             <img id="vs" class="vs" src="svg/vs.svg">
         </div>
         <div id="machine" class="machineGrid">
-            <img id="robot" class="iconosPlayers" src="svg/robot_main.svg">
+            <img id="robot" class="iconsPlayers" src="svg/robot_main.svg">
         </div>
     </div>
 
@@ -61,7 +61,7 @@
             <img class="buttonText" src="svg/scissor_yellow.svg">?</div>
         <p id="descriptiveText">(click in one of 3 options to start playing!)</p> 
         <div>
-            <button id="reinciarContador" class="boton" onclick="funcionRecarga()">OR REBOOT</button>
+            <button id="resetCounter" class="boton" onclick="reloadGame()">OR REBOOT</button>
         </div>
     </div>
 
@@ -73,11 +73,11 @@
         <p class="textOptionScoreResponsiveWhite">YOU WIN?, YOU LOOSE? or IT’S A TIE?</p>
         <div id="scores">
             <div>
-                <div id="contadorH" class="scoreHuman">HUMAN</div>
+                <div id="counterH" class="scoreHuman">HUMAN</div>
                 <div id="numberCounterH" class="numberCounterH">0</div>
             </div>
             <div>
-                <div id="contadorM" class="scoreMachine">MACHINE</div>
+                <div id="counterM" class="scoreMachine">MACHINE</div>
                 <div id="numberCounterM" class="numberCounterM">0</div>
             </div>
         </div>
@@ -89,7 +89,10 @@
         <hr class="signLine">
         <p class="descriptiveText-mini">• • Designed and developed by Federico Poscek • •</p> 
     </div>
-	<div id="efecto" onclick="quitarEfecto();"></div>
-    </div>
+
+     <!-- FINAL SCREEN -->
+    <div id="finalScreen" onclick="functionFinalScreen();"></div>
+
+</div>
 </body>  
 </html>
