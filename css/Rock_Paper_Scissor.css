@@ -9,7 +9,9 @@
     --violeta-claro: #A500F8;
     --violeta-claro-RGB: 165, 0, 248;
     --rojo: #FF0059;
+    --rojo-RGB: 255, 0, 89;
     --verde: #AABD27;
+    --verde-RGB: 170, 189, 39;
     --naranja: #ff7600;
     --amarillo: #FFD400;
     --amarillo-RGB: 255, 212, 0;
@@ -869,4 +871,25 @@ hr.signLine {
         font-size: 0.75em;
         padding-top: 1.5em;
     }
+    }
+
+
+    #efecto {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        transition: all 0.1s;
+        display: none;
+        font-weight: 900;
+        font-size: 15vh;
+        margin: auto;
+        padding: 30vh 0;
+    }
+
+    h3 {
+        color: yellow;
+        font-size: 10vh;
     }
