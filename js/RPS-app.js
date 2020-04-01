@@ -122,13 +122,13 @@ function Humano(choiceHuman) {
             var finalBackground = document.getElementById('finalScreen');
             finalBackground.style.display = 'block';
             finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
-            finalBackground.innerHTML = 'YOU WIN!!' + '<br><h3>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h3>' + '<h6>Click anywhere to play again!</h6>';;
+            finalBackground.innerHTML = '<h1>YOU WIN!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h4>Click anywhere to play again!</h4>';;
     } else {
         if (counterMachine > 3) {
             var finalBackground = document.getElementById('finalScreen');
             finalBackground.style.display = 'block';
             finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
-            finalBackground.innerHTML = 'YOU LOSE!!' + '<br><h3>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h3>' + '<h5>Click anywhere to play again!</h5>';
+            finalBackground.innerHTML = '<h1>YOU LOSE!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h3>Click anywhere to play again!</h3>';
         }
     }
 }
