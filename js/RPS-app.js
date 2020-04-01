@@ -118,18 +118,18 @@ function Humano(eleccionHumano) {
         document.getElementById('numberCounterM').style.color = 'var(--blanco)';
     }
     };
-    if (contadorHumano >= 3) {
+    if (contadorHumano > 3) {
             var finalBackgound = document.getElementById('efecto');
             finalBackgound.style.display = 'block';
             finalBackgound.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
-            finalBackgound.innerHTML = 'YOU WIN!!' + '<br><h3>' + 'Human: ' + contadorHumano + '<br>Machine: ' + contadorMaquina + '<h3>';
+            finalBackgound.innerHTML = 'YOU WIN!!' + '<br><h3>' + 'Human: ' + (contadorHumano - 1) + '<br>Machine: ' + (contadorMaquina - 1) + '<h3>';
             ;
     } else {
-        if (contadorMaquina >= 3) {
+        if (contadorMaquina > 3) {
             var finalBackgound = document.getElementById('efecto');
             finalBackgound.style.display = 'block';
             finalBackgound.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
-            finalBackgound.innerHTML = 'YOU LOSE!!' + '<br><h3>' + 'Human: ' + contadorHumano + '<br>Machine: ' + contadorMaquina + '<h3>';
+            finalBackgound.innerHTML = 'YOU LOSE!!' + '<br><h3>' + 'Human: ' + (contadorHumano - 1) + '<br>Machine: ' + (contadorMaquina - 1) + '<h3>';
             
         }
     }
