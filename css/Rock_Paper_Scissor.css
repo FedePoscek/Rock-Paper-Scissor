@@ -822,7 +822,12 @@ h4 {
 hr.signLine {
     width: 80vw;
 }
-
+h1 {
+    color: var(--negro);
+    font-size: 15vh;
+    font-weight: 900;
+    margin: 20vh auto 1vh auto;
+}
 }
 
 
