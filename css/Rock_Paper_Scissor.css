@@ -327,15 +327,13 @@ hr.signLine {
 /* -------- FINAL SCREEN -------- */
 
 #finalScreen {
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 4;
-    transition: all 0.1s;
     display: none;
-    
 }
 h1 {
     color: var(--negro);
@@ -822,6 +820,8 @@ h4 {
 hr.signLine {
     width: 80vw;
 }
+/* -------- FINAL SCREEN -------- */
+
 h1 {
     color: var(--negro);
     font-size: 15vh;
