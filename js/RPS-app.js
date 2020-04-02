@@ -19,7 +19,7 @@ function Humano(choiceHuman) {
         
         if (opciones[choiceMachine] == 1) { // maquina eligio papel 
             var counter = document.getElementById('textoResultado');
-            counter.innerHTML = 'YOU LOOSE!';
+            counter.innerHTML = 'YOU LOST!';
             counter.style.color = 'var(--rojo)';
             document.getElementById('counterM').innerHTML = 'MACHINE';
             document.getElementById('numberCounterM').innerHTML = counterMachine++;
@@ -27,7 +27,7 @@ function Humano(choiceHuman) {
         } else {
             if (opciones[choiceMachine] == 2) { // maquina eligio tijera 
                 var counter = document.getElementById('textoResultado');
-                counter.innerHTML = 'YOU WIN!';
+                counter.innerHTML = 'YOU WON!';
                 counter.style.color = 'var(--verde)';
                 document.getElementById('counterH').innerHTML = 'HUMAN';
                 document.getElementById('numberCounterH').innerHTML = counterHuman++;
@@ -47,7 +47,7 @@ function Humano(choiceHuman) {
         document.getElementById('user').src='svg/toilet-paper_main.svg';
         if (opciones[choiceMachine] == 2) { // máquina eligió tijera 
             var counter = document.getElementById('textoResultado');
-            counter.innerHTML = 'YOU LOOSE!';
+            counter.innerHTML = 'YOU LOST!';
             counter.style.color = 'var(--rojo)';
             document.getElementById('counterM').innerHTML = 'MACHINE';
             document.getElementById('numberCounterM').innerHTML = counterMachine++;
@@ -55,7 +55,7 @@ function Humano(choiceHuman) {
         } else {
             if (opciones[choiceMachine] == 0) { // máquina eligió piedra 
                 var counter = document.getElementById('textoResultado');
-                counter.innerHTML = 'YOU WIN!';
+                counter.innerHTML = 'YOU WON!';
                 counter.style.color = 'var(--verde)';
                 document.getElementById('counterH').innerHTML = 'HUMAN';
                 document.getElementById('numberCounterH').innerHTML = counterHuman++;
@@ -75,7 +75,7 @@ function Humano(choiceHuman) {
         document.getElementById('user').src='svg/scissor_main.svg';
         if (opciones[choiceMachine] == 1) { // máquina eligió papel 
             var counter = document.getElementById('textoResultado');
-                counter.innerHTML = 'YOU WIN!';
+                counter.innerHTML = 'YOU WON!';
                 counter.style.color = 'var(--verde)';
                 document.getElementById('counterH').innerHTML = 'HUMAN';
                 document.getElementById('numberCounterH').innerHTML = counterHuman++;
@@ -84,7 +84,7 @@ function Humano(choiceHuman) {
         } else {
             if (opciones[choiceMachine] == 0) { // máquina eligió piedra 
                 var counter = document.getElementById('textoResultado');
-                counter.innerHTML = 'YOU LOOSE!';
+                counter.innerHTML = 'YOU LOST!';
                 counter.style.color = 'var(--rojo)';
                 document.getElementById('counterM').innerHTML = 'MACHINE';
                 document.getElementById('numberCounterM').innerHTML = counterMachine++;
@@ -122,13 +122,13 @@ function Humano(choiceHuman) {
             var finalBackground = document.getElementById('finalScreen');
             finalBackground.style.display = 'block';
             finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
-            finalBackground.innerHTML = '<h1>YOU WIN!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h4>Click anywhere to play again!</h4>';;
+            finalBackground.innerHTML = '<h1>YOU WON!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h4>Click anywhere to play again!</h4>';;
     } else {
         if (counterMachine > 3) {
             var finalBackground = document.getElementById('finalScreen');
             finalBackground.style.display = 'block';
             finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
-            finalBackground.innerHTML = '<h1>YOU LOOSE!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h3>Click anywhere to play again!</h3>';
+            finalBackground.innerHTML = '<h1>YOU LOST!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h3>Click anywhere to play again!</h3>';
         }
     }
 }
