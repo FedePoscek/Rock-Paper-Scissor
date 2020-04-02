@@ -128,7 +128,7 @@ function Humano(choiceHuman) {
             var finalBackground = document.getElementById('finalScreen');
             finalBackground.style.display = 'block';
             finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
-            finalBackground.innerHTML = '<h1>YOU LOSE!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h3>Click anywhere to play again!</h3>';
+            finalBackground.innerHTML = '<h1>YOU LOOSE!!</h1>' + '<br><h2>' + 'Human: ' + (counterHuman - 1) + '<br>Machine: ' + (counterMachine - 1) + '<h2>' + '<h3>Click anywhere to play again!</h3>';
         }
     }
 }
