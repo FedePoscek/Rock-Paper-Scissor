@@ -133,7 +133,6 @@ function Humano(choiceHuman) {
     }
 }
 function functionFinalScreen() {
-    document.getElementById('finalScreen').style.display = "none";
     location.reload();
 }
 function reloadGame() {
