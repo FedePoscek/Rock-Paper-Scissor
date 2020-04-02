@@ -636,7 +636,7 @@ h1 {
 
 .generalGrid {
     display: grid;
-    grid-template-rows: 0.75fr 0.75fr 1fr 0.9fr 1fr 0.1fr;
+    grid-template-rows: 0.75fr 0.75fr 1fr 0.75fr 1fr 0.1fr;
     grid-template-columns: 4.5fr 1fr 4.5fr;
     height: 100%;
     width: 100vw;
@@ -798,7 +798,12 @@ h1 {
     font-size: 0.75em;
     padding-top: 1.5em;
 }
-
+hr.signLineFooter {
+    display: block;
+    border: 0.5px solid var(--violeta-medio);
+    width: 70vw;
+    margin: 1.5em 0 1.25em 0;
+}
 
 /* -------- SCORE -------- */
 
@@ -844,7 +849,7 @@ h1 {
     padding-bottom: 2em;
 }
 hr.signLine {
-    width: 80vw;
+    width: 70vw;
 }
 /* -------- FINAL SCREEN -------- */
 
