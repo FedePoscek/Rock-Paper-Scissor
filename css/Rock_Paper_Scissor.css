@@ -47,7 +47,7 @@ body {
 
 .generalGrid {
     display: grid;
-    grid-template-rows: 1fr 1fr 0.85fr 0.1fr;
+    grid-template-rows: 1fr 1fr 0.75fr 0.1fr;
     grid-template-columns: 0.5fr auto 1fr 0.5fr 1fr auto 0.5fr;
     height: 100%;
     width: 90%;
@@ -215,8 +215,61 @@ body {
 .iconsPlayers {
     height: 15em;
     position:relative;
+    animation: JumpUserMachine 1s;
 }
-
+@-webkit-keyframes JumpUserMachine {
+    from {
+      opacity: 0;
+      -webkit-transform: scale(0.1) rotate(30deg);
+      transform: scale(0.1) rotate(30deg);
+      -webkit-transform-origin: center bottom;
+      transform-origin: center bottom;
+    }
+  
+    50% {
+      -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+    }
+  
+    70% {
+      -webkit-transform: rotate(3deg);
+      transform: rotate(3deg);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes JumpUserMachine {
+    from {
+      opacity: 0;
+      -webkit-transform: scale(0.1) rotate(30deg);
+      transform: scale(0.1) rotate(30deg);
+      -webkit-transform-origin: center bottom;
+      transform-origin: center bottom;
+    }
+  
+    50% {
+      -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+    }
+  
+    70% {
+      -webkit-transform: rotate(3deg);
+      transform: rotate(3deg);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  
+ 
 /* -------- FOOTER -------- */
 
 .boton {
@@ -279,6 +332,9 @@ body {
 .buttonText {
     height: 1.2em;
     padding: 0 0.07em;
+}
+.signLineFooter {
+    display: none;
 }
 
 /* -------- SCORE -------- */
