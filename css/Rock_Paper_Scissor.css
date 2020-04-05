@@ -790,7 +790,7 @@ h1 {
     border: 1.25px solid var(--naranja);
     border-radius: 0.5em;
     padding: 0.8em 1.2em;
-    margin: 0em 0.5em 1em 0.5em;
+    margin: 0.5em 0.5em 1em 0.5em;
     position:relative;
     cursor: pointer;
 }
