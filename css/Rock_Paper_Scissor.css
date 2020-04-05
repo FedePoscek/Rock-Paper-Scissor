@@ -922,26 +922,27 @@ h1 {
 
 
 @media only screen and (max-width: 450px){
+
     /* -------- GENERAL GRID (MOBILE) -------- */ 
-    
-    /* 
-    (1) HEADER  (2)  HEADER (3)  HEADER (4)
-    (2) OPTION       OPTION      OPTION
-    (3) USER         VS          MACHINE     
-    (4) FOOTER       FOOTER      FOOTER
-    (5) SCORE        SCORE       SCORE
-    (6) SIGN         SIGN        SIGN
-    (7)
-    */
-    
-    
-    .generalGrid {
-        display: grid;
-        grid-template-rows: 0.65fr 0.75fr 0.75fr 0.8fr 1fr 0.1fr;
-        grid-template-columns: 4.5fr 1fr 4.5fr;
-        height: 100%;
-        width: 100vw;
-    }
+
+/* 
+(1) HEADER  (2)  HEADER (3)  HEADER (4)
+(2) USER         VS          MACHINE     
+(3) FOOTER       FOOTER      FOOTER
+(4) OPTION       OPTION      OPTION
+(5) SCORE        SCORE       SCORE
+(6) SIGN         SIGN        SIGN
+(7)
+*/
+
+
+.generalGrid {
+    display: grid;
+    grid-template-rows: 0.75fr 0.75fr 0.55fr 0.75fr 1fr 0.1fr;
+    grid-template-columns: 4.5fr 1fr 4.5fr;
+    height: 100%;
+    width: 100vw;
+}
     
     /* -------- OPTION -------- */
     
