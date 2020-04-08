@@ -24,26 +24,26 @@ function Humano(choiceHuman) {
     var user = document.getElementById('user');
     var robot = document.getElementById('robot');
 
-    document.getElementById('descriptiveText').innerHTML = '(click in one of 3 options to continue playing!)';
+    document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
 
         if(choiceHuman == 0) { // humano eligió piedra 
             user.src='svg/rockstar_main.svg';
             if (options[choiceMachine] == 1) { // máquina eligió papel 
-                counter.innerHTML = 'YOU LOST!';
+                counter.textContent = 'YOU LOST!';
                 counter.style.color = 'var(--rojo)';
-                counterM.innerHTML = 'MACHINE';
-                numberCounterM.innerHTML = counterMachine++;
+                counterM.textContent = 'MACHINE';
+                numberCounterM.textContent = counterMachine++;
                 robot.src='svg/toilet-paper_main.svg';
             } else {
                 if (options[choiceMachine] == 2) { // máquina eligió  tijera 
-                    counter.innerHTML = 'YOU WON!';
+                    counter.textContent = 'YOU WON!';
                     counter.style.color = 'var(--verde)';
-                    counterH.innerHTML = 'HUMAN';
-                    numberCounterH.innerHTML = counterHuman++;
+                    counterH.textContent = 'HUMAN';
+                    numberCounterH.textContent = counterHuman++;
                     robot.src='svg/scissor_main.svg';
                 } else {
                     if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                        counter.innerHTML = 'IT\'S A TIE!';
+                        counter.textContent = 'IT\'S A TIE!';
                         counter.style.color = 'var(--blanco)';
                         robot.src='svg/rockstar_main.svg';
                     }
@@ -54,21 +54,21 @@ function Humano(choiceHuman) {
         if (choiceHuman == 1) { // humano eligió papel 
             user.src='svg/toilet-paper_main.svg';
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
-                counter.innerHTML = 'YOU LOST!';
+                counter.textContent = 'YOU LOST!';
                 counter.style.color = 'var(--rojo)';
-                counterM.innerHTML = 'MACHINE';
-                numberCounterM.innerHTML = counterMachine++;
+                counterM.textContent = 'MACHINE';
+                numberCounterM.textContent = counterMachine++;
                 robot.src='svg/scissor_main.svg';
             } else {
                 if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                    counter.innerHTML = 'YOU WON!';
+                    counter.textContent = 'YOU WON!';
                     counter.style.color = 'var(--verde)';
-                    counterH.innerHTML = 'HUMAN';
-                    numberCounterH.innerHTML = counterHuman++;
+                    counterH.textContent = 'HUMAN';
+                    numberCounterH.textContent = counterHuman++;
                     robot.src='svg/rockstar_main.svg';
                 } else {
                     if (options[choiceMachine] == 1) { // máquina eligió papel 
-                        counter.innerHTML = 'IT\'S A TIE!';
+                        counter.textContent = 'IT\'S A TIE!';
                         counter.style.color = 'var(--blanco)';
                         robot.src='svg/toilet-paper_main.svg';
                     }
@@ -79,21 +79,21 @@ function Humano(choiceHuman) {
         if (choiceHuman == 2) { // humano eligió tijera 
             user.src='svg/scissor_main.svg';
             if (options[choiceMachine] == 1) { // máquina eligió papel 
-                    counter.innerHTML = 'YOU WON!';
+                    counter.textContent = 'YOU WON!';
                     counter.style.color = 'var(--verde)';
-                    counterH.innerHTML = 'HUMAN';
-                    numberCounterH.innerHTML = counterHuman++;
+                    counterH.textContent = 'HUMAN';
+                    numberCounterH.textContent = counterHuman++;
                     robot.src='svg/toilet-paper_main.svg';
             } else {
                 if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                    counter.innerHTML = 'YOU LOST!';
+                    counter.textContent = 'YOU LOST!';
                     counter.style.color = 'var(--rojo)';
-                    counterM.innerHTML = 'MACHINE';
-                    numberCounterM.innerHTML = counterMachine++;
+                    counterM.textContent = 'MACHINE';
+                    numberCounterM.textContent = counterMachine++;
                     robot.src='svg/rockstar_main.svg';
                 } else {
                     if (options[choiceMachine] == 2) { // máquina eligió tijera 
-                        counter.innerHTML = 'IT\'S A TIE!';
+                        counter.textContent = 'IT\'S A TIE!';
                         counter.style.color = 'var(--blanco)';
                         robot.src='svg/scissor_main.svg';
                     }
