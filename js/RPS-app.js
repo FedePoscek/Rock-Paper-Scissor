@@ -59,7 +59,7 @@ function Humano(choiceHuman) {
 
                 setTimeout(function(){
                     counter.textContent = 'YOU\'RE IN LUCK!!';
-                },1000);
+                },750);
         }
         function youLost() {
             counter.textContent = 'YOU LOST!';
@@ -69,7 +69,7 @@ function Humano(choiceHuman) {
 
                 setTimeout(function(){
                     counter.textContent = 'WANNA REMATCH??';
-                },1000);
+                },750);
         }
         function itsATie() {
             counter.textContent = 'IT\'S A TIE!';
@@ -77,7 +77,7 @@ function Humano(choiceHuman) {
 
                 setTimeout(function(){
                     counter.textContent = 'TIE THIS OFF!!';
-                },1000);
+                },750);
         }
 
 
