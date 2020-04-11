@@ -14,14 +14,48 @@ function Humano(choiceHuman) {
 
     choiceMachine = randomNumber(0,2);
 
-    var counter = document.getElementById('textoResultado'),
+        // counterM == Counter Machine
+        // counterH == Counter Human
+        // numberCounterM == Numero del contador Machine
+        // numberCounterH == Numero del contador Humano
+
+    const counter = document.getElementById('textoResultado'),
         counterM = document.getElementById('counterM'),
         counterH = document.getElementById('counterH'),
         numberCounterM = document.getElementById('numberCounterM'),
         numberCounterH = document.getElementById('numberCounterH'),
         user = document.getElementById('user'),
         robot = document.getElementById('robot'),
+            //funciones para cambios de icono Machine
+        robotPaper = function() {
+                robot.src='svg/toilet-paper_main.svg';
+            },
+        robotScissor = function() {
+                robot.src='svg/scissor_main.svg';
+            },
+        robotRock = function() {
+                robot.src='svg/rockstar_main.svg';
+            },
         finalBackground = document.getElementById('finalScreen');
+
+
+        //funciones para resultados
+        function youWon() {
+            counter.textContent = 'YOU WON!';
+            counter.style.color = 'var(--verde)';
+            counterH.textContent = 'HUMAN';
+            numberCounterH.textContent = ++counterHuman;
+        }
+        function youLost() {
+            counter.textContent = 'YOU LOST!';
+            counter.style.color = 'var(--rojo)';
+            counterM.textContent = 'MACHINE';
+            numberCounterM.textContent = ++counterMachine;
+        }
+        function itsATie() {
+            counter.textContent = 'IT\'S A TIE!';
+            counter.style.color = 'var(--blanco)';
+        }
 
 
     document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
@@ -29,23 +63,16 @@ function Humano(choiceHuman) {
         if(choiceHuman == 0) { // humano eligió piedra 
             user.src='svg/rockstar_main.svg';
             if (options[choiceMachine] == 1) { // máquina eligió papel 
-                counter.textContent = 'YOU LOST!';
-                counter.style.color = 'var(--rojo)';
-                counterM.textContent = 'MACHINE';
-                numberCounterM.textContent = ++counterMachine;
-                robot.src='svg/toilet-paper_main.svg';
+                youLost();
+                robotPaper();
             } else {
-                if (options[choiceMachine] == 2) { // máquina eligió  tijera 
-                    counter.textContent = 'YOU WON!';
-                    counter.style.color = 'var(--verde)';
-                    counterH.textContent = 'HUMAN';
-                    numberCounterH.textContent = ++counterHuman;
-                    robot.src='svg/scissor_main.svg';
+                if (options[choiceMachine] == 2) { // máquina eligió tijera 
+                    youWon();
+                    robotScissor();
                 } else {
                     if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                        counter.textContent = 'IT\'S A TIE!';
-                        counter.style.color = 'var(--blanco)';
-                        robot.src='svg/rockstar_main.svg';
+                        itsATie();
+                        robotRock();
                     }
                 }
             } 
@@ -54,23 +81,16 @@ function Humano(choiceHuman) {
         if (choiceHuman == 1) { // humano eligió papel 
             user.src='svg/toilet-paper_main.svg';
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
-                counter.textContent = 'YOU LOST!';
-                counter.style.color = 'var(--rojo)';
-                counterM.textContent = 'MACHINE';
-                numberCounterM.textContent = ++counterMachine;
-                robot.src='svg/scissor_main.svg';
+                youLost();
+                robotScissor();
             } else {
                 if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                    counter.textContent = 'YOU WON!';
-                    counter.style.color = 'var(--verde)';
-                    counterH.textContent = 'HUMAN';
-                    numberCounterH.textContent = ++counterHuman;
-                    robot.src='svg/rockstar_main.svg';
+                    youWon();
+                    robotRock();
                 } else {
                     if (options[choiceMachine] == 1) { // máquina eligió papel 
-                        counter.textContent = 'IT\'S A TIE!';
-                        counter.style.color = 'var(--blanco)';
-                        robot.src='svg/toilet-paper_main.svg';
+                        itsATie();
+                        robotPaper();
                     }
                 }
             }
@@ -79,23 +99,16 @@ function Humano(choiceHuman) {
         if (choiceHuman == 2) { // humano eligió tijera 
             user.src='svg/scissor_main.svg';
             if (options[choiceMachine] == 1) { // máquina eligió papel 
-                    counter.textContent = 'YOU WON!';
-                    counter.style.color = 'var(--verde)';
-                    counterH.textContent = 'HUMAN';
-                    numberCounterH.textContent = ++counterHuman;
-                    robot.src='svg/toilet-paper_main.svg';
+                    youWon();
+                    robotPaper();
             } else {
                 if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                    counter.textContent = 'YOU LOST!';
-                    counter.style.color = 'var(--rojo)';
-                    counterM.textContent = 'MACHINE';
-                    numberCounterM.textContent = ++counterMachine;
-                    robot.src='svg/rockstar_main.svg';
+                    youLost();
+                    robotRock();
                 } else {
                     if (options[choiceMachine] == 2) { // máquina eligió tijera 
-                        counter.textContent = 'IT\'S A TIE!';
-                        counter.style.color = 'var(--blanco)';
-                        robot.src='svg/scissor_main.svg';
+                        itsATie();
+                        robotScissor();
                     }
                 }
             }
@@ -120,7 +133,7 @@ function Humano(choiceHuman) {
         }
         };
         
-        if (counterHuman >= 3) {
+        if (counterHuman == 3) {
                 finalBackground.style.display = 'block';
                 finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
 
@@ -133,7 +146,7 @@ function Humano(choiceHuman) {
                     `;
                     
             } else {
-            if (counterMachine >= 3) {
+            if (counterMachine == 3) {
                 finalBackground.style.display = 'block';
                 finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
 
@@ -147,9 +160,11 @@ function Humano(choiceHuman) {
             }
         }
 }
+
 function functionFinalScreen() {
     location.reload();
 }
+
 function reloadGame() {
     location.reload();
 }
