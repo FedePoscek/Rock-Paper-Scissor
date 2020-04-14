@@ -52,6 +52,7 @@ body {
     height: 100%;
     width: 90%;
     margin: auto;
+    padding-top: 0vh;
 }
 .headerGrid {
     grid-column: 3 / 6;
@@ -446,6 +447,7 @@ h4 {
         grid-template-columns: 0.5fr auto 1fr 0.5fr 1fr auto 0.5fr;;
         height: 100%;
         width: 100%;
+        padding-top: 0vh;
     }
     .headerGrid {
         grid-column: 3 / 6;
@@ -683,8 +685,253 @@ h1 {
 }
 }
 
+@media only screen and (min-width: 900px) and (max-width: 1099px) {
 
-@media only screen and (max-width: 600px) {
+    .generalGrid {
+        display: grid;
+        grid-template-rows: 1fr 1fr 0.85fr 0.1fr;
+        grid-template-columns: 0.5fr auto 1fr 0.5fr 1fr auto 0.5fr;;
+        height: 100%;
+        width: 100%;
+        padding-top: 25vh;
+    }
+    .headerGrid {
+        grid-column: 3 / 6;
+        grid-row: 1 / 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .optionGrid {
+        grid-column: 2 / 3;
+        grid-row: 1 / 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2em;
+    }
+    .userVsMachineGrid {
+        grid-column: 3 / 6;
+        grid-row: 2 / 3;
+        display: flex;
+        flex-direction: row;
+    }
+    .humanGrid {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .vsGrid {
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 10vw;
+    }
+    .machineGrid {
+        grid-column: 5 / 6;
+        grid-row: 2 / 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .footerGrid {
+        grid-column: 3 / 6;
+        grid-row: 3 / 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .scoreGrid {
+        grid-column: 6 / 7;
+        grid-row: 1 / 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2em;
+    }
+    .signGrid {
+        grid-column: 2 / 7;
+        grid-row: 4 / 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    /* -------- OPTION -------- */
+    
+    .textOptionScore {
+        font-weight: 900;
+        font-size: 1em;
+        text-align: center;
+        color: var(--violeta-claro);
+        padding-bottom: 0.5em;
+    }
+    .textOptionScoreResponsive {
+        display: none;
+        font-weight: 900;
+        font-size: 1em;
+        text-align: center;
+        color: var(--violeta-claro);
+        padding-bottom: 0.5em;
+    }
+    .botonesSVG {
+        height: 2.75em;
+        border: 2px solid var(--naranja);
+        border-radius: 0.5em;
+        padding: 0.7em 1em;
+        margin: 0.4em 1em;
+        position:relative;
+        cursor: pointer;
+        animation: shadow-pulse 1s infinite;
+    }
+    
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+    
+    /* -------- HEADER -------- */
+    
+    .title {
+        width: 35vw;
+    }
+    
+    
+    /* -------- useVsMachine -------- */
+    
+    #human {
+        width: 23vw;
+    }
+    .vs {
+        width: 7vw;
+    }
+    #machine {
+        width: 23vw;
+    }
+    .iconsPlayers {
+        height: 8em;
+        position:relative;
+    }
+    
+    /* -------- FOOTER -------- */
+    
+    .boton {
+        background-color: var(--violeta-medio);
+        border: 0.01em var(--violeta-medio) solid;
+        color: var(--violeta-claro);
+        border-radius: 0.5em;
+        font-weight: 900;
+        font-size: 1em;
+        padding: 0.45em 1em;
+        margin: 0.5em 0em 0em 0em;
+        cursor: pointer;
+    }
+    .boton:hover {
+        background-color: var(--violeta-claro);
+        border: 0.01em var(--violeta-claro) solid;
+        color: var(--violeta-medio);
+    }
+    
+    .textResultAnimated {
+        font-weight: 800;
+        font-size: 2em;
+        text-align: center;
+        color: var(--amarillo);
+        padding-bottom: 0.15em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 1s infinite;
+    }
+    
+    
+    #descriptiveText { 
+        font-weight: 700;
+        font-size: 0.5em;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: var(--blanco);
+        padding: 0.5 0;
+    }
+    .buttonText {
+        height: 1.2em;
+        padding: 0 0.07em;
+    }
+    
+    /* -------- SCORE -------- */
+    
+    #scores {
+        padding: 0.5em 0 0 0;
+    }
+    .scoreHuman, .scoreMachine {
+        align-items: center;
+        font-weight: 900;
+        font-size: 1.25em;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: var(--violeta-medio);
+        padding: 0.1em 0 0 0;
+    }
+    .numberCounterM, .numberCounterH {
+        align-items: center;
+        font-weight: 900;
+        font-size: 6.5em;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: var(--violeta-medio);
+        padding-bottom: 0.05em;
+    }
+    .textOptionScoreResponsive {
+        display: none;
+    }
+    .scoreLine {
+        display: none;
+    }
+    
+    /* -------- SIGN -------- */
+    
+    .descriptiveText-mini {
+        font-weight: 700;
+        font-size: 0.75em;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: var(--violeta-medio);
+        padding-bottom: 2em;
+    }
+    hr.signLine {
+        width: 45vw;
+        border: 0.5px solid var(--violeta-medio);
+    }
+
+    /* -------- FINAL SCREEN -------- */
+
+h1 {
+    color: var(--negro);
+    font-size: 12vw;
+    font-weight: 900;
+    margin: 25vh auto 1vh auto;
+}
+}
+
+@media only screen and (max-width: 660px) {
 /* -------- GENERAL GRID (MOBILE) -------- */ 
 
 /* 
@@ -704,6 +951,7 @@ h1 {
     grid-template-columns: 4.5fr 1fr 4.5fr;
     height: 100%;
     width: 100vw;
+    padding-top: 0vh;
 }
 .headerGrid {
     grid-column: 1 / 4;
