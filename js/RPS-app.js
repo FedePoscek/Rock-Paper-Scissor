@@ -31,6 +31,10 @@ var options = [0, 1, 2],
 
     userPaper = function() {
             user.src='svg/toilet-paper_main.svg';
+ /*           setTimeout(function(){
+                user.style.filter = "opacity(50%)";
+            },750);
+*/            
         },
     userScissor = function() {
             user.src='svg/scissor_main.svg';
@@ -39,17 +43,17 @@ var options = [0, 1, 2],
             user.src='svg/rockstar_main.svg';
         };
 
-    document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
+document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
    
 
 
-
+//función para random de elección máquina
 function randomNumber(min, max){
     var number = Math.floor(Math.random() * (max - min +1) + min);
         return number;
 }
 
-
+//función para elección humano
 function Humano(choiceHuman) {
 
     choiceMachine = randomNumber(0,2);
