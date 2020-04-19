@@ -41,11 +41,12 @@ var options = [0, 1, 2],
         },
     userRock = function() {
             user.src='svg/rockstar_main.svg';
-        };
+        },
+    continueText = function() {
+        document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
+    };
 
-document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
-   
-
+    
 
 //función para random de elección máquina
 function randomNumber(min, max){
@@ -55,11 +56,11 @@ function randomNumber(min, max){
 
 //función para elección humano
 function Humano(choiceHuman) {
-
     choiceMachine = randomNumber(0,2);
- 
+    
         if(choiceHuman == 0) { // humano eligió piedra 
             userRock();
+            continueText();
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
                 robotPaper();
@@ -73,6 +74,7 @@ function Humano(choiceHuman) {
                 }
         if (choiceHuman == 1) { // humano eligió papel 
             userPaper();
+            continueText();
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
                 robotScissor();
@@ -86,6 +88,7 @@ function Humano(choiceHuman) {
                 }
         if (choiceHuman == 2) { // humano eligió tijera 
             userScissor();
+            continueText();
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                     youWon();
                     robotPaper();
