@@ -18,7 +18,52 @@ var options = [0, 1, 2],
     finalBackground = document.getElementById('finalScreen'),
     user = document.getElementById('user'),
     robot = document.getElementById('robot'),
-        //funciones para cambios de icono Machine
+        
+    //Animaciones para los iconos de Robot y User en empates
+    animacionRobot = function() {
+            setTimeout(function(){
+                robot.style.transform = 'rotate(10deg) scale(1)';
+            },150);
+            setTimeout(function(){
+                robot.style.transform = 'rotate(-10deg) scale(0.9)';
+            },200);
+            setTimeout(function(){
+                robot.style.transform = 'rotate(0deg) scale(0.9)';
+            },250);
+            setTimeout(function(){
+                robot.style.transform = 'rotate(10deg) scale(0.9)';
+            },300);
+            setTimeout(function(){
+                robot.style.transform = 'rotate(-10deg) scale(0.9)';
+            },350);
+            setTimeout(function(){
+                robot.style.transform = 'rotate(0deg) scale(1)';
+            },400);
+        },
+
+    animacionUser = function() {
+            setTimeout(function(){
+                user.style.transform = 'rotate(10deg) scale(1)';
+            },150);
+            setTimeout(function(){
+                user.style.transform = 'rotate(-10deg) scale(0.9)';
+            },200);
+            setTimeout(function(){
+                user.style.transform = 'rotate(0deg) scale(0.9)';
+            },250);
+            setTimeout(function(){
+                user.style.transform = 'rotate(10deg) scale(0.9)';
+            },300);
+            setTimeout(function(){
+                user.style.transform = 'rotate(-10deg) scale(0.9)';
+            },350);
+            setTimeout(function(){
+                user.style.transform = 'rotate(0deg) scale(1)';
+            },400);
+        },
+
+
+    //funciones para cambios de icono Machine
     robotPaper = function() {
             robot.src='svg/toilet-paper_main.svg';
         },
@@ -31,10 +76,6 @@ var options = [0, 1, 2],
 
     userPaper = function() {
             user.src='svg/toilet-paper_main.svg';
- /*           setTimeout(function(){
-                user.style.filter = "opacity(50%)";
-            },750);
-*/            
         },
     userScissor = function() {
             user.src='svg/scissor_main.svg';
@@ -70,6 +111,8 @@ function Humano(choiceHuman) {
                 } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                         itsATie();
                         robotRock();
+                        animacionRobot();
+                        animacionUser();
                     }
                 }
         if (choiceHuman == 1) { // humano eligió papel 
@@ -84,6 +127,8 @@ function Humano(choiceHuman) {
                 } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                         itsATie();
                         robotPaper();
+                        animacionRobot();
+                        animacionUser();
                     }
                 }
         if (choiceHuman == 2) { // humano eligió tijera 
@@ -98,6 +143,8 @@ function Humano(choiceHuman) {
                 } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                         itsATie();
                         robotScissor();
+                        animacionRobot();
+                        animacionUser();
                     }
                 }
 }
@@ -122,7 +169,7 @@ function ColorCounter() {
             }
 }
 
-//función para Ganador, Perdedor o Empate
+//función para textos de Ganador, Perdedor o Empate
 function youWon() {
     counter.textContent = 'YOU WON!';
     counter.style.color = 'var(--verde)';
@@ -191,6 +238,7 @@ function CounterResults() {
         }
 }
 
+//función para recargar la pantalla y comenzar otra vez
 function functionFinalScreen() {
     location.reload();
 }
