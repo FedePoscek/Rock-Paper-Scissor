@@ -20,23 +20,37 @@ var options = [0, 1, 2],
     robot = document.getElementById('robot'),
         
     //Animaciones para los iconos de Robot y User en empates
-    animacionRobot = function() {
+    animacionTie = function() {
         robot.animate([
             // keyframes
             { transform: 'rotate(10deg) scale(1)' }, 
             { transform: 'rotate(-10deg) scale(0.9)' },
-            { transform: 'rotate(0deg) scale(0.9)' },
             { transform: 'rotate(10deg) scale(0.9)' },
             { transform: 'rotate(-10deg) scale(0.9)' },
+            { transform: 'rotate(10deg) scale(0.9)' },
             { transform: 'rotate(0deg) scale(1)' },
           ], { 
             // timing options
-            duration: 500,
+            duration: 400,
+            iterations: 1,
+            easing: 'linear', 
+          });
+        user.animate([
+            // keyframes
+            { transform: 'rotate(10deg) scale(1)' }, 
+            { transform: 'rotate(-10deg) scale(0.9)' },
+            { transform: 'rotate(10deg) scale(0.9)' },
+            { transform: 'rotate(-10deg) scale(0.9)' },
+            { transform: 'rotate(10deg) scale(0.9)' },
+            { transform: 'rotate(0deg) scale(1)' },
+          ], { 
+            // timing options
+            duration: 400,
             iterations: 1,
             easing: 'linear', 
           });
         },
-
+ 
     animacionRobotWon = function() {
         robot.animate([
             // keyframes
@@ -58,22 +72,6 @@ var options = [0, 1, 2],
           });
         },
 
-    animacionUser = function() {
-        user.animate([
-            // keyframes
-            { transform: 'rotate(10deg) scale(1)' }, 
-            { transform: 'rotate(-10deg) scale(0.9)' },
-            { transform: 'rotate(0deg) scale(0.9)' },
-            { transform: 'rotate(10deg) scale(0.9)' },
-            { transform: 'rotate(-10deg) scale(0.9)' },
-            { transform: 'rotate(0deg) scale(1)' },
-          ], { 
-            // timing options
-            duration: 500,
-            iterations: 1,
-            easing: 'linear', 
-          });
-        },
 
     animacionUserWon = function() {
         user.animate([
@@ -147,8 +145,7 @@ function Humano(choiceHuman) {
                 } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                         itsATie();
                         robotRock();
-                        animacionRobot();
-                        animacionUser();
+                        animacionTie();
                     }
                 }
         if (choiceHuman == 1) { // humano eligió papel 
@@ -165,8 +162,7 @@ function Humano(choiceHuman) {
                 } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                         itsATie();
                         robotPaper();
-                        animacionRobot();
-                        animacionUser();
+                        animacionTie();
                     }
                 }
         if (choiceHuman == 2) { // humano eligió tijera 
@@ -183,8 +179,7 @@ function Humano(choiceHuman) {
                 } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                         itsATie();
                         robotScissor();
-                        animacionRobot();
-                        animacionUser();
+                        animacionTie();
                     }
                 }
 }
