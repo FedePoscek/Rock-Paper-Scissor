@@ -21,45 +21,79 @@ var options = [0, 1, 2],
         
     //Animaciones para los iconos de Robot y User en empates
     animacionRobot = function() {
-            setTimeout(function(){
-                robot.style.transform = 'rotate(10deg) scale(1)';
-            },150);
-            setTimeout(function(){
-                robot.style.transform = 'rotate(-10deg) scale(0.9)';
-            },200);
-            setTimeout(function(){
-                robot.style.transform = 'rotate(0deg) scale(0.9)';
-            },250);
-            setTimeout(function(){
-                robot.style.transform = 'rotate(10deg) scale(0.9)';
-            },300);
-            setTimeout(function(){
-                robot.style.transform = 'rotate(-10deg) scale(0.9)';
-            },350);
-            setTimeout(function(){
-                robot.style.transform = 'rotate(0deg) scale(1)';
-            },400);
+        robot.animate([
+            // keyframes
+            { transform: 'rotate(10deg) scale(1)' }, 
+            { transform: 'rotate(-10deg) scale(0.9)' },
+            { transform: 'rotate(0deg) scale(0.9)' },
+            { transform: 'rotate(10deg) scale(0.9)' },
+            { transform: 'rotate(-10deg) scale(0.9)' },
+            { transform: 'rotate(0deg) scale(1)' },
+          ], { 
+            // timing options
+            duration: 500,
+            iterations: 1,
+            easing: 'ease', 
+          });
+        },
+
+    animacionRobotWon = function() {
+        robot.animate([
+            // keyframes
+            { transform: 'translateY(0px)' }, 
+            { transform: 'translateY(-10px)' },
+            { transform: 'translateY(-35px)' },
+            { transform: 'translateY(-5px)' },
+            { transform: 'translateY(-10px)' },
+            { transform: 'translateY(-5px)' },
+            { transform: 'translateY(-2px)' },
+            { transform: 'translateY(-4px)' },
+            { transform: 'translateY(-2px)' },
+            { transform: 'translateY(-1px)' }
+          ], { 
+            // timing options
+            duration: 500,
+            iterations: 1,
+            easing: 'ease', 
+          });
         },
 
     animacionUser = function() {
-            setTimeout(function(){
-                user.style.transform = 'rotate(10deg) scale(1)';
-            },150);
-            setTimeout(function(){
-                user.style.transform = 'rotate(-10deg) scale(0.9)';
-            },200);
-            setTimeout(function(){
-                user.style.transform = 'rotate(0deg) scale(0.9)';
-            },250);
-            setTimeout(function(){
-                user.style.transform = 'rotate(10deg) scale(0.9)';
-            },300);
-            setTimeout(function(){
-                user.style.transform = 'rotate(-10deg) scale(0.9)';
-            },350);
-            setTimeout(function(){
-                user.style.transform = 'rotate(0deg) scale(1)';
-            },400);
+        user.animate([
+            // keyframes
+            { transform: 'rotate(10deg) scale(1)' }, 
+            { transform: 'rotate(-10deg) scale(0.9)' },
+            { transform: 'rotate(0deg) scale(0.9)' },
+            { transform: 'rotate(10deg) scale(0.9)' },
+            { transform: 'rotate(-10deg) scale(0.9)' },
+            { transform: 'rotate(0deg) scale(1)' },
+          ], { 
+            // timing options
+            duration: 500,
+            iterations: 1,
+            easing: 'ease', 
+          });
+        },
+
+    animacionUserWon = function() {
+        user.animate([
+            // keyframes
+            { transform: 'translateY(0px)' }, 
+            { transform: 'translateY(-10px)' },
+            { transform: 'translateY(-35px)' },
+            { transform: 'translateY(-5px)' },
+            { transform: 'translateY(-10px)' },
+            { transform: 'translateY(-5px)' },
+            { transform: 'translateY(-2px)' },
+            { transform: 'translateY(-4px)' },
+            { transform: 'translateY(-2px)' },
+            { transform: 'translateY(-1px)' }
+          ], { 
+            // timing options
+            duration: 500,
+            iterations: 1,
+            easing: 'ease', 
+          });
         },
 
 
@@ -105,9 +139,11 @@ function Humano(choiceHuman) {
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
                 robotPaper();
+                animacionRobotWon();
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                     youWon();
                     robotScissor();
+                    animacionUserWon();
                 } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                         itsATie();
                         robotRock();
@@ -121,9 +157,11 @@ function Humano(choiceHuman) {
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
                 robotScissor();
+                animacionRobotWon();
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                     youWon();
                     robotRock();
+                    animacionUserWon();
                 } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                         itsATie();
                         robotPaper();
@@ -137,9 +175,11 @@ function Humano(choiceHuman) {
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                     youWon();
                     robotPaper();
+                    animacionUserWon();
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                     youLost();
                     robotRock();
+                    animacionRobotWon();
                 } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                         itsATie();
                         robotScissor();
