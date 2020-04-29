@@ -33,7 +33,7 @@ var options = [0, 1, 2],
             // timing options
             duration: 500,
             iterations: 1,
-            easing: 'ease', 
+            easing: 'linear', 
           });
         },
 
@@ -71,7 +71,7 @@ var options = [0, 1, 2],
             // timing options
             duration: 500,
             iterations: 1,
-            easing: 'ease', 
+            easing: 'linear', 
           });
         },
 
