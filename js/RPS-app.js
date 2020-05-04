@@ -7,6 +7,8 @@
 // numberCounterH == Numero del contador Humano
 
 var options = [0, 1, 2],
+    acumuladoUsuario = [],
+    acumuladoMaquina = [],
     choiceMachine,
     counterHuman = 0,
     counterMachine = 0,
@@ -15,111 +17,11 @@ var options = [0, 1, 2],
     counterH = document.getElementById('counterH'),
     numberCounterM = document.getElementById('numberCounterM'),
     numberCounterH = document.getElementById('numberCounterH'),
-    finalBackground = document.getElementById('finalScreen'),
-    user = document.getElementById('user'),
-    robot = document.getElementById('robot'),
+    finalBackground = document.getElementById('finalScreen');
+   
+// ------ finalización de declaración de variables globales
         
-    //Animaciones para los iconos de Robot y User en empates
-    animacionTie = function() {
-        robot.animate([
-            // keyframes
-            { transform: 'rotate(10deg) scale(1)' }, 
-            { transform: 'rotate(-10deg) scale(0.9)' },
-            { transform: 'rotate(10deg) scale(0.9)' },
-            { transform: 'rotate(-10deg) scale(0.9)' },
-            { transform: 'rotate(10deg) scale(0.9)' },
-            { transform: 'rotate(0deg) scale(1)' },
-          ], { 
-            // timing options
-            duration: 400,
-            iterations: 1,
-            easing: 'linear', 
-          });
-        user.animate([
-            // keyframes
-            { transform: 'rotate(10deg) scale(1)' }, 
-            { transform: 'rotate(-10deg) scale(0.9)' },
-            { transform: 'rotate(10deg) scale(0.9)' },
-            { transform: 'rotate(-10deg) scale(0.9)' },
-            { transform: 'rotate(10deg) scale(0.9)' },
-            { transform: 'rotate(0deg) scale(1)' },
-          ], { 
-            // timing options
-            duration: 400,
-            iterations: 1,
-            easing: 'linear', 
-          });
-        },
- 
-    animacionRobotWon = function() {
-        robot.animate([
-            // keyframes
-            { transform: 'translateY(0px)' }, 
-            { transform: 'translateY(-10px)' },
-            { transform: 'translateY(-35px)' },
-            { transform: 'translateY(-5px)' },
-            { transform: 'translateY(-10px)' },
-            { transform: 'translateY(-5px)' },
-            { transform: 'translateY(-2px)' },
-            { transform: 'translateY(-4px)' },
-            { transform: 'translateY(-2px)' },
-            { transform: 'translateY(-1px)' }
-          ], { 
-            // timing options
-            duration: 500,
-            iterations: 1,
-            easing: 'ease', 
-          });
-        },
 
-
-    animacionUserWon = function() {
-        user.animate([
-            // keyframes
-            { transform: 'translateY(0px)' }, 
-            { transform: 'translateY(-10px)' },
-            { transform: 'translateY(-35px)' },
-            { transform: 'translateY(-5px)' },
-            { transform: 'translateY(-10px)' },
-            { transform: 'translateY(-5px)' },
-            { transform: 'translateY(-2px)' },
-            { transform: 'translateY(-4px)' },
-            { transform: 'translateY(-2px)' },
-            { transform: 'translateY(-1px)' }
-          ], { 
-            // timing options
-            duration: 500,
-            iterations: 1,
-            easing: 'ease', 
-          });
-        },
-
-
-    //funciones para cambios de icono Machine
-    robotPaper = function() {
-            robot.src='svg/toilet-paper_main.svg';
-        },
-    robotScissor = function() {
-            robot.src='svg/scissor_main.svg';
-        },
-    robotRock = function() {
-            robot.src='svg/rockstar_main.svg';
-        },
-
-    userPaper = function() {
-            user.src='svg/toilet-paper_main.svg';
-        },
-    userScissor = function() {
-            user.src='svg/scissor_main.svg';
-        },
-    userRock = function() {
-            user.src='svg/rockstar_main.svg';
-        },
-    continueText = function() {
-        document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
-    };
-
-    
 
 //función para random de elección máquina
 function randomNumber(min, max){
@@ -129,60 +31,183 @@ function randomNumber(min, max){
 
 //función para elección humano
 function Humano(choiceHuman) {
+    
+    // ------ inicio de declaración de variables locales
+
+        var user = document.getElementById('user'),
+            robot = document.getElementById('robot'),
+                
+            //Animaciones para los iconos de Robot y User en empates
+            animacionTie = function() {
+                robot.animate([
+                    // keyframes
+                    { transform: 'rotate(10deg) scale(1)' }, 
+                    { transform: 'rotate(-10deg) scale(0.9)' },
+                    { transform: 'rotate(10deg) scale(0.9)' },
+                    { transform: 'rotate(-10deg) scale(0.9)' },
+                    { transform: 'rotate(10deg) scale(0.9)' },
+                    { transform: 'rotate(0deg) scale(1)' },
+                ], { 
+                    // timing options
+                    duration: 400,
+                    iterations: 1,
+                    easing: 'linear', 
+                });
+                user.animate([
+                    // keyframes
+                    { transform: 'rotate(10deg) scale(1)' }, 
+                    { transform: 'rotate(-10deg) scale(0.9)' },
+                    { transform: 'rotate(10deg) scale(0.9)' },
+                    { transform: 'rotate(-10deg) scale(0.9)' },
+                    { transform: 'rotate(10deg) scale(0.9)' },
+                    { transform: 'rotate(0deg) scale(1)' },
+                ], { 
+                    // timing options
+                    duration: 400,
+                    iterations: 1,
+                    easing: 'linear', 
+                });
+                },
+        
+            animacionRobotWon = function() {
+                robot.animate([
+                    // keyframes
+                    { transform: 'translateY(0px)' }, 
+                    { transform: 'translateY(-10px)' },
+                    { transform: 'translateY(-35px)' },
+                    { transform: 'translateY(-5px)' },
+                    { transform: 'translateY(-10px)' },
+                    { transform: 'translateY(-5px)' },
+                    { transform: 'translateY(-2px)' },
+                    { transform: 'translateY(-4px)' },
+                    { transform: 'translateY(-2px)' },
+                    { transform: 'translateY(-1px)' }
+                ], { 
+                    // timing options
+                    duration: 500,
+                    iterations: 1,
+                    easing: 'ease', 
+                });
+                },
+
+            animacionUserWon = function() {
+                user.animate([
+                    // keyframes
+                    { transform: 'translateY(0px)' }, 
+                    { transform: 'translateY(-10px)' },
+                    { transform: 'translateY(-35px)' },
+                    { transform: 'translateY(-5px)' },
+                    { transform: 'translateY(-10px)' },
+                    { transform: 'translateY(-5px)' },
+                    { transform: 'translateY(-2px)' },
+                    { transform: 'translateY(-4px)' },
+                    { transform: 'translateY(-2px)' },
+                    { transform: 'translateY(-1px)' }
+                ], { 
+                    // timing options
+                    duration: 500,
+                    iterations: 1,
+                    easing: 'ease', 
+                });
+                },
+
+            //funciones para cambios de icono Machine
+            robotPaper = function() {
+                    robot.src='svg/toilet-paper_main.svg';
+                },
+            robotScissor = function() {
+                    robot.src='svg/scissor_main.svg';
+                },
+            robotRock = function() {
+                    robot.src='svg/rockstar_main.svg';
+                },
+
+            userPaper = function() {
+                    user.src='svg/toilet-paper_main.svg';
+                },
+            userScissor = function() {
+                    user.src='svg/scissor_main.svg';
+                },
+            userRock = function() {
+                    user.src='svg/rockstar_main.svg';
+                },
+            continueText = function() {
+                document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
+            };
+
+    // ------ finalización de declaración de variables locales
+
+
     choiceMachine = randomNumber(0,2);
     
         if(choiceHuman == 0) { // humano eligió piedra 
             userRock();
             continueText();
+            acumuladoUsuario.push("piedra");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
                 robotPaper();
                 animacionRobotWon();
+                acumuladoMaquina.push("papel");
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                     youWon();
                     robotScissor();
                     animacionUserWon();
+                    acumuladoMaquina.push("tijera");
                 } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                         itsATie();
                         robotRock();
                         animacionTie();
+                        acumuladoUsuario.pop();
                     }
                 }
         if (choiceHuman == 1) { // humano eligió papel 
             userPaper();
             continueText();
+            acumuladoUsuario.push("papel");
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
                 robotScissor();
                 animacionRobotWon();
+                acumuladoMaquina.push("tijera");
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                     youWon();
                     robotRock();
                     animacionUserWon();
+                    acumuladoMaquina.push("piedra");
                 } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                         itsATie();
                         robotPaper();
                         animacionTie();
+                        acumuladoUsuario.pop();
                     }
                 }
         if (choiceHuman == 2) { // humano eligió tijera 
             userScissor();
             continueText();
+            acumuladoUsuario.push("tijera");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                     youWon();
                     robotPaper();
                     animacionUserWon();
+                    acumuladoMaquina.push("papel");
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                     youLost();
                     robotRock();
                     animacionRobotWon();
+                    acumuladoMaquina.push("piedra");
                 } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                         itsATie();
                         robotScissor();
                         animacionTie();
+                        acumuladoUsuario.pop();
                     }
                 }
+                console.log("usuario: " + acumuladoUsuario);
+                console.log("maquina: " + acumuladoMaquina);
 }
+
+
 
 //función para color de resultados
 function ColorCounter() {
@@ -243,9 +268,14 @@ function itsATie() {
         },750);
 }
 
+
+
+
 //función para contador y pantalla final
 function CounterResults() {
-        if (counterHuman == 3) {
+        if (counterHuman === 3) {
+
+                //setTimeout(function(){
                 finalBackground.style.display = 'block';
                 finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
 
@@ -255,10 +285,16 @@ function CounterResults() {
                     <h2>Human: ${counterHuman}</h2>
                     <h2>Machine: ${counterMachine}</h2>
                     <h4>Click anywhere to play again!</h4>
-                    `;
-                    
+              
+                    `
+                    //<h5>${acumuladoUsuario}</h5>
+                    //<h5>${acumuladoMaquina}</h5>
+                //},750);
+
             } else {
-            if (counterMachine == 3) {
+            if (counterMachine === 3) {
+
+                //setTimeout(function(){
                 finalBackground.style.display = 'block';
                 finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
 
@@ -268,9 +304,14 @@ function CounterResults() {
                     <h2>Human: ${counterHuman}</h2>
                     <h2>Machine: ${counterMachine}</h2>
                     <h3>Click anywhere to play again!</h3>
+                 
                     `;
+                    //<h5>${acumuladoUsuario}</h5>
+                    //<h5>${acumuladoMaquina}</h5>
+                //},750);                
             }
         }
+    
 }
 
 //función para recargar la pantalla y comenzar otra vez
