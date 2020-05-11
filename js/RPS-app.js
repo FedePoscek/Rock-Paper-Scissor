@@ -149,11 +149,13 @@ function Humano(choiceHuman) {
                 robotPaper();
                 animacionRobotWon();
                 acumuladoMaquina.push("papel");
+                CounterAnimationM();
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                     youWon();
                     robotScissor();
                     animacionUserWon();
                     acumuladoMaquina.push("tijera");
+                    CounterAnimationH();
                 } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                         itsATie();
                         robotRock();
@@ -170,11 +172,13 @@ function Humano(choiceHuman) {
                 robotScissor();
                 animacionRobotWon();
                 acumuladoMaquina.push("tijera");
+                CounterAnimationM();
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                     youWon();
                     robotRock();
                     animacionUserWon();
                     acumuladoMaquina.push("piedra");
+                    CounterAnimationH();
                 } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                         itsATie();
                         robotPaper();
@@ -191,11 +195,13 @@ function Humano(choiceHuman) {
                     robotPaper();
                     animacionUserWon();
                     acumuladoMaquina.push("papel");
+                    CounterAnimationH();
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                     youLost();
                     robotRock();
                     animacionRobotWon();
                     acumuladoMaquina.push("piedra");
+                    CounterAnimationM();
                 } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                         itsATie();
                         robotScissor();
@@ -216,17 +222,48 @@ function ColorCounter() {
         counterM.style.color = 'var(--rojo)';
         numberCounterH.style.color = 'var(--verde)';
         numberCounterM.style.color = 'var(--rojo)';
+        
         } else if (counterHuman < counterMachine) {
                 counterH.style.color = 'var(--rojo)';
                 counterM.style.color = 'var(--verde)';
                 numberCounterH.style.color = 'var(--rojo)';
                 numberCounterM.style.color = 'var(--verde)';
+                
             } else {
                 counterH.style.color = 'var(--blanco)';
                 counterM.style.color = 'var(--blanco)';
                 numberCounterH.style.color = 'var(--blanco)';
                 numberCounterM.style.color = 'var(--blanco)';
+                
             }
+}
+
+function CounterAnimationH() {
+    numberCounterH.animate([
+        // keyframes
+        { transform: 'rotateX(0deg)' }, 
+        { transform: 'rotateX(180deg)' },
+        { transform: 'rotateX(0deg)' }, 
+    ], { 
+        // timing options
+        duration: 200,
+        iterations: 1,
+        easing: 'ease-out', 
+    });
+}
+
+function CounterAnimationM() {
+    numberCounterM.animate([
+        // keyframes
+        { transform: 'rotateX(0deg)' }, 
+        { transform: 'rotateX(180deg)' },
+        { transform: 'rotateX(0deg)' }, 
+    ], { 
+        // timing options
+        duration: 200,
+        iterations: 1,
+        easing: 'ease-out', 
+    });
 }
 
 //función para textos de Ganador, Perdedor o Empate
