@@ -238,6 +238,7 @@ function ColorCounter() {
             }
 }
 
+//función para rotar números si gana el usuario
 function CounterAnimationH() {
     numberCounterH.animate([
         // keyframes
@@ -251,7 +252,7 @@ function CounterAnimationH() {
         easing: 'ease-out', 
     });
 }
-
+//función para rotar números si gana la maquina
 function CounterAnimationM() {
     numberCounterM.animate([
         // keyframes
