@@ -330,12 +330,12 @@ function CounterResults() {
                     <h1>YOU WON!!</h1>
                     <h2>Human: ${counterHuman}</h2>
                     <h2>Machine: ${counterMachine}</h2>
-                    <h4>Click anywhere to play again!</h4>
                     <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
                     <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
+                    <h4>Click anywhere to play again!</h4>
                     `;
                 },500);
 
@@ -352,12 +352,12 @@ function CounterResults() {
                     <h1>YOU LOST!!</h1>
                     <h2>Human: ${counterHuman}</h2>
                     <h2>Machine: ${counterMachine}</h2>
-                    <h3>Click anywhere to play again!</h3>
                     <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
                     <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
+                    <h3>Click anywhere to play again!</h3>
                     `;
                 },500);                
             }
