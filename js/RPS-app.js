@@ -3,6 +3,8 @@
 // counterH == Counter Human
 // numberCounterM == Numero del contador Machine
 // numberCounterH == Numero del contador Humano
+// acumuladoUsuario == Array que acumula las iteraciones del Humano y las traduce en la placa final
+// acumuladoMaquina == Array que acumula las iteraciones de la Máquina y las traduce en la placa final
 
 var options = [0, 1, 2],
     acumuladoUsuario = [],
@@ -136,7 +138,7 @@ function Humano(choiceHuman) {
 
     // ------ finalización de declaración de variables locales
 
-
+    // función para definir si gana Roca, Papel o Tijera y sus consecuencias
     choiceMachine = randomNumber(0,2);
             //este prirmer if es para frenar la función (e inhabilitar los botones) cuando el contador llegue a 3.
         if(counterHuman === 3 || counterMachine === 3){
@@ -211,31 +213,31 @@ function Humano(choiceHuman) {
                 acumuladoUsuario.pop();
             }
         }
-            console.log("usuario: " + acumuladoUsuario);
-            console.log("maquina: " + acumuladoMaquina);
+            console.log("usuario: " + acumuladoUsuario); //testeo en consola
+            console.log("maquina: " + acumuladoMaquina); //testeo en consola
 }
 
 
 //función para color de resultados
 function ColorCounter() {
+    // si va ganando Humano
     if (counterHuman > counterMachine) {
         counterH.style.color = 'var(--verde)';
         counterM.style.color = 'var(--rojo)';
         numberCounterH.style.color = 'var(--verde)';
         numberCounterM.style.color = 'var(--rojo)';
-        
+    // si va ganando Máquina    
     } else if (counterHuman < counterMachine) {
         counterH.style.color = 'var(--rojo)';
         counterM.style.color = 'var(--verde)';
         numberCounterH.style.color = 'var(--rojo)';
         numberCounterM.style.color = 'var(--verde)';
-            
+    // si van empatando
     } else {
         counterH.style.color = 'var(--blanco)';
         counterM.style.color = 'var(--blanco)';
         numberCounterH.style.color = 'var(--blanco)';
         numberCounterM.style.color = 'var(--blanco)';
-        
     }
 }
 
@@ -254,7 +256,8 @@ function CounterAnimationH() {
         easing: 'ease-out', 
     });
 }
-//función para rotar números si gana la maquina
+
+//función para rotar números si gana la máquina
 function CounterAnimationM() {
     numberCounterM.animate([
         // keyframes
@@ -270,7 +273,7 @@ function CounterAnimationM() {
 }
 
 
-//función para textos de Ganador, Perdedor o Empate
+//funciones para textos de Ganador, Perdedor o Empate
 function youWon() {
     counter.textContent = 'YOU WON!';
     counter.style.color = 'var(--verde)';
@@ -284,6 +287,7 @@ function youWon() {
             counter.style.color = 'var(--verde)';
         },750);
 }
+
 function youLost() {
     counter.textContent = 'YOU LOST!';
     counter.style.color = 'var(--rojo)';
@@ -297,6 +301,7 @@ function youLost() {
             counter.style.color = 'var(--rojo)';
         },750);
 }
+
 function itsATie() {
     counter.textContent = 'IT\'S A TIE!';
     counter.style.color = 'var(--blanco)';
@@ -311,9 +316,8 @@ function itsATie() {
 
 
 
-//función para contador y pantalla final
+//función para pantalla final y contador total de ganados y perdidos
 function CounterResults() {
- 
         if (counterHuman === 3) {
 
                 setTimeout(function(){
@@ -334,7 +338,7 @@ function CounterResults() {
                     `;
                 },500);
 
-            } else {
+        } else {
             if (counterMachine === 3) {
 
                 setTimeout(function(){
