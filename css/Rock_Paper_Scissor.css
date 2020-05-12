@@ -492,21 +492,21 @@ h2 {
 }
 h3 {
     color: var(--amarillo);
-    font-size: 2.5vh;
+    font-size: 1.1em;
     font-weight: 700; 
-    padding-top: 1.75vh;
+    padding: 1.5vh 0;
 }
 h4 {
     color: var(--rojo);
-    font-size: 2.5vh;
+    font-size: 1.1em;
     font-weight: 700; 
-    padding-top: 1.75vh;
+    padding: 1.5vh 0;
 }
 h5 {
     color: var(--negro);
-    font-size: 2.5vh;
+    font-size: 0.8em;
     font-weight: 700; 
-    padding-top: 1.75vh;
+    padding-top: 1.5vh;
 }
 
 

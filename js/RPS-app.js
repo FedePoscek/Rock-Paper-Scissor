@@ -1,5 +1,3 @@
-
-
 // var options = ["piedra", "papel", "tijera"];
 // counterM == Counter Machine
 // counterH == Counter Human
@@ -28,6 +26,7 @@ function randomNumber(min, max){
     var number = Math.floor(Math.random() * (max - min +1) + min);
         return number;
 }
+
 
 //función para elección humano
 function Humano(choiceHuman) {
@@ -139,80 +138,82 @@ function Humano(choiceHuman) {
 
 
     choiceMachine = randomNumber(0,2);
-    
+            //este prirmer if es para frenar la función (e inhabilitar los botones) cuando el contador llegue a 3.
+        if(counterHuman === 3 || counterMachine === 3){
+            return;
+        }   
         if(choiceHuman == 0) { // humano eligió piedra 
             userRock();
             continueText();
-            acumuladoUsuario.push("piedra");
+            acumuladoUsuario.push("Rock");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
                 robotPaper();
                 animacionRobotWon();
-                acumuladoMaquina.push("papel");
+                acumuladoMaquina.push(" loses - Paper wins");
                 CounterAnimationM();
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
-                    youWon();
-                    robotScissor();
-                    animacionUserWon();
-                    acumuladoMaquina.push("tijera");
-                    CounterAnimationH();
-                } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                        itsATie();
-                        robotRock();
-                        animacionTie();
-                        acumuladoUsuario.pop();
-                    }
-                }
+                youWon();
+                robotScissor();
+                animacionUserWon();
+                acumuladoMaquina.push(" wins - Scissors loses");
+                CounterAnimationH();
+            } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
+                itsATie();
+                robotRock();
+                animacionTie();
+                acumuladoUsuario.pop();
+            }
+        }
         if (choiceHuman == 1) { // humano eligió papel 
             userPaper();
             continueText();
-            acumuladoUsuario.push("papel");
+            acumuladoUsuario.push("Paper");
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
                 robotScissor();
                 animacionRobotWon();
-                acumuladoMaquina.push("tijera");
+                acumuladoMaquina.push(" loses - Scissors wins");
                 CounterAnimationM();
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                    youWon();
-                    robotRock();
-                    animacionUserWon();
-                    acumuladoMaquina.push("piedra");
-                    CounterAnimationH();
-                } else if (options[choiceMachine] == 1) { // máquina eligió papel 
-                        itsATie();
-                        robotPaper();
-                        animacionTie();
-                        acumuladoUsuario.pop();
-                    }
-                }
+                youWon();
+                robotRock();
+                animacionUserWon();
+                acumuladoMaquina.push(" wins - Rock loses");
+                CounterAnimationH();
+            } else if (options[choiceMachine] == 1) { // máquina eligió papel 
+                itsATie();
+                robotPaper();
+                animacionTie();
+                acumuladoUsuario.pop();
+            }
+        }
         if (choiceHuman == 2) { // humano eligió tijera 
             userScissor();
             continueText();
-            acumuladoUsuario.push("tijera");
+            acumuladoUsuario.push("Scissors");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
-                    youWon();
-                    robotPaper();
-                    animacionUserWon();
-                    acumuladoMaquina.push("papel");
-                    CounterAnimationH();
+                youWon();
+                robotPaper();
+                animacionUserWon();
+                acumuladoMaquina.push(" wins - Paper loses");
+                CounterAnimationH();
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
-                    youLost();
-                    robotRock();
-                    animacionRobotWon();
-                    acumuladoMaquina.push("piedra");
-                    CounterAnimationM();
-                } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
-                        itsATie();
-                        robotScissor();
-                        animacionTie();
-                        acumuladoUsuario.pop();
-                    }
-                }
-                console.log("usuario: " + acumuladoUsuario);
-                console.log("maquina: " + acumuladoMaquina);
+                youLost();
+                robotRock();
+                animacionRobotWon();
+                acumuladoMaquina.push(" loses - Rock wins");
+                CounterAnimationM();
+            } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
+                itsATie();
+                robotScissor();
+                animacionTie();
+                acumuladoUsuario.pop();
+            }
+        }
+            console.log("usuario: " + acumuladoUsuario);
+            console.log("maquina: " + acumuladoMaquina);
 }
-
 
 
 //función para color de resultados
@@ -223,20 +224,21 @@ function ColorCounter() {
         numberCounterH.style.color = 'var(--verde)';
         numberCounterM.style.color = 'var(--rojo)';
         
-        } else if (counterHuman < counterMachine) {
-                counterH.style.color = 'var(--rojo)';
-                counterM.style.color = 'var(--verde)';
-                numberCounterH.style.color = 'var(--rojo)';
-                numberCounterM.style.color = 'var(--verde)';
-                
-            } else {
-                counterH.style.color = 'var(--blanco)';
-                counterM.style.color = 'var(--blanco)';
-                numberCounterH.style.color = 'var(--blanco)';
-                numberCounterM.style.color = 'var(--blanco)';
-                
-            }
+    } else if (counterHuman < counterMachine) {
+        counterH.style.color = 'var(--rojo)';
+        counterM.style.color = 'var(--verde)';
+        numberCounterH.style.color = 'var(--rojo)';
+        numberCounterM.style.color = 'var(--verde)';
+            
+    } else {
+        counterH.style.color = 'var(--blanco)';
+        counterM.style.color = 'var(--blanco)';
+        numberCounterH.style.color = 'var(--blanco)';
+        numberCounterM.style.color = 'var(--blanco)';
+        
+    }
 }
+
 
 //función para rotar números si gana el usuario
 function CounterAnimationH() {
@@ -266,6 +268,7 @@ function CounterAnimationM() {
         easing: 'ease-out', 
     });
 }
+
 
 //función para textos de Ganador, Perdedor o Empate
 function youWon() {
@@ -308,12 +311,12 @@ function itsATie() {
 
 
 
-
 //función para contador y pantalla final
 function CounterResults() {
+ 
         if (counterHuman === 3) {
 
-                //setTimeout(function(){
+                setTimeout(function(){
                 finalBackground.style.display = 'block';
                 finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
 
@@ -323,16 +326,18 @@ function CounterResults() {
                     <h2>Human: ${counterHuman}</h2>
                     <h2>Machine: ${counterMachine}</h2>
                     <h4>Click anywhere to play again!</h4>
-              
-                    `
-                    //<h5>${acumuladoUsuario}</h5>
-                    //<h5>${acumuladoMaquina}</h5>
-                //},750);
+                    <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
+                    <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
+                    <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
+                    <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
+                    <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
+                    `;
+                },500);
 
             } else {
             if (counterMachine === 3) {
 
-                //setTimeout(function(){
+                setTimeout(function(){
                 finalBackground.style.display = 'block';
                 finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
 
@@ -342,11 +347,13 @@ function CounterResults() {
                     <h2>Human: ${counterHuman}</h2>
                     <h2>Machine: ${counterMachine}</h2>
                     <h3>Click anywhere to play again!</h3>
-                 
+                    <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
+                    <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
+                    <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
+                    <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
+                    <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
                     `;
-                    //<h5>${acumuladoUsuario}</h5>
-                    //<h5>${acumuladoMaquina}</h5>
-                //},750);                
+                },500);                
             }
         }
     
