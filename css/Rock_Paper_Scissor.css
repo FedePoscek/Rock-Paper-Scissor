@@ -481,7 +481,7 @@ h1 {
     color: var(--negro);
     font-size: 15vh;
     font-weight: 900;
-    margin: 25vh auto 1vh auto;
+    margin: 20vh auto 1vh auto;
     -webkit-animation: winLoose 1s infinite;
             animation: winLoose 1s infinite;
 }
