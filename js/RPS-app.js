@@ -325,6 +325,7 @@ function CounterResults() {
                 finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
 
                 // con JavaScript Template Literals
+                // para las posiciones [3] y [4] del array, en caso de no haber valor, muestra un espacio vacio
                 finalBackground.innerHTML = `
                     <h1>YOU WON!!</h1>
                     <h2>Human: ${counterHuman}</h2>
@@ -346,6 +347,7 @@ function CounterResults() {
                 finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
 
                 // con JavaScript Template Literals
+                // para las posiciones [3] y [4] del array, en caso de no haber valor, muestra un espacio vacio
                 finalBackground.innerHTML = `
                     <h1>YOU LOST!!</h1>
                     <h2>Human: ${counterHuman}</h2>
