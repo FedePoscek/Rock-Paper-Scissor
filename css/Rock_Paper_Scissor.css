@@ -453,8 +453,8 @@ h1 {
     font-weight: 900;
     margin: 20vh auto 1vh auto;
     text-shadow: 0.03em 0.03em var(--amarillo);
-    -webkit-animation: winLoose 2.2s ease 0.5s infinite both;
-            animation: winLoose 2.2s ease 0.5s infinite both;
+    -webkit-animation: winLoose 2.2s ease infinite both;
+            animation: winLoose 2.2s ease infinite both;
 }
 
  @-webkit-keyframes winLoose {
