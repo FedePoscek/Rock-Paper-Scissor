@@ -275,15 +275,12 @@ body {
       -webkit-transform: scale(0.1) rotate(30deg);
       -webkit-transform-origin: center bottom;
     }
-  
     50% {
       -webkit-transform: rotate(-10deg);
     }
-  
     70% {
       -webkit-transform: rotate(3deg);
     }
-  
     to {
       opacity: 1;
       -webkit-transform: scale(1);
@@ -296,15 +293,12 @@ body {
       transform: scale(0.1) rotate(30deg);
       transform-origin: center bottom;
     }
-  
     50% {
       transform: rotate(-10deg);
     }
-  
     70% {
       transform: rotate(3deg);
     }
-  
     to {
       opacity: 1;
       transform: scale(1);
@@ -453,38 +447,98 @@ hr.signLine {
     display: none;
 }
 
-@-webkit-keyframes winLoose {
-    from {
-      -webkit-transform: scale3d(1, 1, 1);
-    }
-    50% {
-      -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    }
-    to {
-      -webkit-transform: scale3d(1, 1, 1);
-    }
-  }
-
-@keyframes winLoose {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-    50% {
-      transform: scale3d(0.9, 0.9, 0.9);
-    }
-    to {
-      transform: scale3d(1, 1, 1);
-    }
-  }
-
 h1 {
     color: var(--negro);
     font-size: 15vh;
     font-weight: 900;
     margin: 20vh auto 1vh auto;
-    -webkit-animation: winLoose 1s infinite;
-            animation: winLoose 1s infinite;
+    text-shadow: 0.03em 0.03em var(--amarillo);
+    -webkit-animation: winLoose 2.2s ease 0.5s 1 both;
+            animation: winLoose 2.2s ease 0.5s 1 both;
 }
+
+ @-webkit-keyframes winLoose {
+    0% {
+      -webkit-transform: scale(0);
+      -webkit-animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    18% {
+      -webkit-transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    30% {
+      -webkit-transform: scale(0.7);
+      -webkit-animation-timing-function: ease-in;
+    }
+    42% {
+      -webkit-transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+    }
+    52% {
+      -webkit-transform: scale(0.84);
+      -webkit-animation-timing-function: ease-in;
+    }
+    60% {
+      -webkit-transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+    }
+    65% {
+      -webkit-transform: scale(0.95);
+      -webkit-animation-timing-function: ease-in;
+    }
+    70% {
+        -webkit-transform: scale(1);
+        -webkit-animation-timing-function: ease-out;
+      }
+    100% {
+      -webkit-transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+    }
+  }
+  @keyframes winLoose {
+    0% {
+        transform: scale(0);
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+      18% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+        opacity: 1;
+      }
+      30% {
+        transform: scale(0.7);
+        animation-timing-function: ease-in;
+      }
+      42% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+      }
+      52% {
+        transform: scale(0.84);
+        animation-timing-function: ease-in;
+      }
+      60% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+      }
+      65% {
+        transform: scale(0.95);
+        animation-timing-function: ease-in;
+      }
+      70% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+        }
+      100% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+      }
+  }
+  
+
 h2 {
     color: var(--blanco);
     font-size: 5vh;
@@ -793,7 +847,6 @@ h5 {
     /* -------- FINAL SCREEN -------- */
 
 h1 {
-    color: var(--negro);
     font-size: 12vw;
     font-weight: 900;
     margin: 25vh auto 1vh auto;
