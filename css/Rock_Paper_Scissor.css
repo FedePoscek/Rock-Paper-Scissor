@@ -309,20 +309,21 @@ body {
 /* -------- FOOTER -------- */
 
 .boton {
-    background-color: var(--violeta-claro);
+    -webkit-appearance: none;
+    appearance: none;
     border: 0.15em var(--violeta-oscuro-degrade) solid;
-    color: var(--violeta-oscuro-degrade);
     border-radius: 0.5em;
     -moz-border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
+    color: var(--violeta-oscuro-degrade);
+    background-color: var(--violeta-claro);
     font-weight: 900;
     font-size: 1.25em;
     padding: 0.5em 1em;
     margin: 1em 0em 0em 0em;
     cursor: pointer;
     text-decoration: none;
-    -webkit-appearance: none;
-    appearance: none;
+    
     -webkit-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);
     -moz-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);
     box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);   
@@ -330,16 +331,12 @@ body {
   
 }
 .boton:hover {
-    background-color: var(--violeta-oscuro-degrade);
     color: var(--violeta-claro);
     border: 0.15em var(--violeta-claro) solid;
+    background-color: var(--violeta-oscuro-degrade);
     -webkit-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);
     -moz-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);
     box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);  
-    text-decoration: none;
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
 }
 
 .textResultAnimated {
