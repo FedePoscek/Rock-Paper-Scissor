@@ -459,7 +459,7 @@ h1 {
     color: var(--negro);
     font-size: 15vh;
     font-weight: 900;
-    margin: 10vh auto 1vh auto;
+    margin: 20vh auto 1vh auto;
     text-shadow: 0.03em 0.03em var(--amarillo);
     -webkit-animation: winLoose 2.2s ease infinite both;
             animation: winLoose 2.2s ease infinite both;
@@ -840,7 +840,7 @@ h5 {
 h1 {
     font-size: 12vw;
     font-weight: 900;
-    margin: 25vh auto 1vh auto;
+    margin: 15vh auto 1vh auto;
 }
 }
 
