@@ -309,9 +309,9 @@ body {
 /* -------- FOOTER -------- */
 
 .boton {
-    background-color: var(--violeta-medio);
-    border: 0.01em var(--violeta-medio) solid;
-    color: var(--violeta-claro);
+    background-color: var(--violeta-claro);
+    border: 0.15em var(--violeta-oscuro-degrade) solid;
+    color: var(--violeta-oscuro-degrade);
     border-radius: 0.5em;
     -moz-border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
@@ -321,14 +321,21 @@ body {
     margin: 1em 0em 0em 0em;
     cursor: pointer;
     text-decoration: none;
-    -moz-appearance: none;
-         appearance: none;
-    -webkit-appearance: none;
+    -webkit-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);
+    -moz-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);
+    box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);   
+    outline: none;
+  
 }
 .boton:hover {
-    background-color: var(--violeta-claro);
-    border: 0.01em var(--violeta-claro) solid;
-    color: var(--violeta-medio);
+    background-color: var(--violeta-oscuro-degrade);
+    color: var(--violeta-claro);
+    border: 0.15em var(--violeta-claro) solid;
+    -webkit-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);
+    -moz-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);
+    box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);  
+    text-decoration: none;
+    outline: none;
 }
 
 .textResultAnimated {
@@ -750,23 +757,6 @@ h5 {
     
     /* -------- FOOTER -------- */
     
-    .boton {
-        background-color: var(--violeta-medio);
-        border: 0.01em var(--violeta-medio) solid;
-        color: var(--violeta-claro);
-        border-radius: 0.5em;
-        font-weight: 900;
-        font-size: 1em;
-        padding: 0.45em 1em;
-        margin: 0.5em 0em 0em 0em;
-        cursor: pointer;
-    }
-    .boton:hover {
-        background-color: var(--violeta-claro);
-        border: 0.01em var(--violeta-claro) solid;
-        color: var(--violeta-medio);
-    }
-    
     .textResultAnimated {
         font-weight: 800;
         font-size: 2em;
@@ -784,7 +774,7 @@ h5 {
     
     #descriptiveText { 
         font-weight: 700;
-        font-size: 1em;
+        font-size: 0.75em;
         letter-spacing: 0.02em;
         text-align: center;
         color: var(--blanco);
@@ -831,7 +821,7 @@ h5 {
     
     .descriptiveText-mini {
         font-weight: 700;
-        font-size: 1em;
+        font-size: 0.5em;
         letter-spacing: 0.02em;
         text-align: center;
         color: rgba(var(--violeta-oscuro-RGB), 0.5);
@@ -1050,22 +1040,6 @@ h1 {
 
 /* -------- FOOTER -------- */
 
-.boton {
-    background-color: var(--violeta-medio);
-    border: 0.01em var(--violeta-medio) solid;
-    color: var(--violeta-claro);
-    border-radius: 0.5em;
-    font-weight: 900;
-    font-size: 1em;
-    padding: 0.5em 1em;
-    margin: 1em 0em 0em 0em;
-    cursor: pointer;
-}
-.boton:hover {
-    background-color: var(--violeta-claro);
-    border: 0.01em var(--violeta-claro) solid;
-    color: var(--violeta-medio);
-}
 #textoResultado { 
     font-size: 2em;
     padding-top: 0.15em;
@@ -1128,7 +1102,7 @@ hr.signLineFooter {
 
 .descriptiveText-mini {
     font-weight: 700;
-    font-size: 1em;
+    font-size: 0.75em;
     letter-spacing: 0.02em;
     text-align: center;
     color: rgba(var(--violeta-oscuro-RGB), 0.5);
@@ -1210,7 +1184,7 @@ h1 {
         padding-bottom: 0.35em;
     }
     #descriptiveText { 
-        font-size: 1em;
+        font-size: 0.75em;
         padding-bottom: 0.15em;
     }
     #descriptiveText-mini {
@@ -1437,29 +1411,13 @@ h1 {
     
     /* -------- FOOTER -------- */
     
-    .boton {
-        background-color: var(--violeta-medio);
-        border: 0.01em var(--violeta-medio) solid;
-        color: var(--violeta-claro);
-        border-radius: 0.5em;
-        font-weight: 900;
-        font-size: 1em;
-        padding: 0.5em 1em;
-        margin: 1em 0em 0em 0em;
-        cursor: pointer;
-    }
-    .boton:hover {
-        background-color: var(--violeta-claro);
-        border: 0.01em var(--violeta-claro) solid;
-        color: var(--violeta-medio);
-    }
     #textoResultado { 
         font-size: 3em;
         padding-top: 0.15em;
         padding-bottom: 0.25em;
     }
     #descriptiveText { 
-        font-size: 1em;
+        font-size: 1.25em;
         padding-bottom: 0.5em;
     }
     #descriptiveText-mini {
@@ -1515,7 +1473,7 @@ h1 {
     
     .descriptiveText-mini {
         font-weight: 700;
-        font-size: 1em;
+        font-size: 1.25em;
         letter-spacing: 0.02em;
         text-align: center;
         color: rgba(var(--violeta-oscuro-RGB), 0.5);

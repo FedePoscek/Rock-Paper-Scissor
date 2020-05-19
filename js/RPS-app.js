@@ -16,8 +16,7 @@ var options = [0, 1, 2],
     counterM = document.getElementById('counterM'),
     counterH = document.getElementById('counterH'),
     numberCounterM = document.getElementById('numberCounterM'),
-    numberCounterH = document.getElementById('numberCounterH'),
-    finalBackground = document.getElementById('finalScreen');
+    numberCounterH = document.getElementById('numberCounterH');
    
 // ------ finalización de declaración de variables globales
         
@@ -318,6 +317,11 @@ function itsATie() {
 
 //función para pantalla final y contador total de ganados y perdidos
 function CounterResults() {
+
+    // ------ inicio de declaración de variables locales
+    var finalBackground = document.getElementById('finalScreen');
+    // ------ finalización de declaración de variables locales
+
         if (counterHuman === 3) {
 
                 setTimeout(function(){
@@ -335,7 +339,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <h4>Click anywhere to play again!</h4>
+                    <button class="boton" onclick="reloadGame()">PLAY AGAIN !!!</button>
                     `;
                 },500);
 
@@ -357,7 +361,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <h3>Click anywhere to play again!</h3>
+                    <button class="boton" onclick="reloadGame()">PLAY AGAIN !!!</button>
                     `;
                 },500);                
             }
@@ -366,6 +370,6 @@ function CounterResults() {
 }
 
 //función para recargar la pantalla y comenzar otra vez
-function functionFinalScreen() {
+function reloadGame() {
     location.reload();
 }
