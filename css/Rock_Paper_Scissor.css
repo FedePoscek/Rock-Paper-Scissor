@@ -321,6 +321,8 @@ body {
     margin: 1em 0em 0em 0em;
     cursor: pointer;
     text-decoration: none;
+    -webkit-appearance: none;
+    appearance: none;
     -webkit-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);
     -moz-box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);
     box-shadow: 0.25em 0.25em 0px 0px var(--violeta-oscuro-degrade);   
@@ -336,6 +338,8 @@ body {
     box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);  
     text-decoration: none;
     outline: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .textResultAnimated {
