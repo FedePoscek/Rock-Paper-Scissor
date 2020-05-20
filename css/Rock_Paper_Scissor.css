@@ -310,6 +310,7 @@ body {
 
 
 button {
+    display: inline-block;
     -webkit-appearance: none;
     appearance: none;
     border: 0.15em var(--violeta-oscuro-degrade) solid;
