@@ -308,11 +308,8 @@ body {
  
 /* -------- FOOTER -------- */
 
-button {
-    text-decoration: none;
-}
 
-.boton {
+button {
     -webkit-appearance: none;
     appearance: none;
     border: 0.15em var(--violeta-oscuro-degrade) solid;
@@ -334,7 +331,7 @@ button {
     outline: none;
   
 }
-.boton:hover {
+button:hover {
     color: var(--violeta-claro);
     border: 0.15em var(--violeta-claro) solid;
     background-color: var(--violeta-oscuro-degrade);
