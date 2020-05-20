@@ -308,6 +308,10 @@ body {
  
 /* -------- FOOTER -------- */
 
+button {
+    text-decoration: none;
+}
+
 .boton {
     -webkit-appearance: none;
     appearance: none;
