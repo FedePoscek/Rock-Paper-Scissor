@@ -339,7 +339,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <button onclick="reloadGame()">PLAY AGAIN !!!</button>
+                    <button class="boton" onclick="reloadGame()">PLAY AGAIN !!!</button>
                     `;
                 },500);
 
@@ -361,7 +361,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <button onclick="reloadGame()">PLAY AGAIN !!!</button>
+                    <button class="boton" onclick="reloadGame()">PLAY AGAIN !!!</button>
                     `;
                 },500);                
             }
