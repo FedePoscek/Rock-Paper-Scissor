@@ -189,18 +189,17 @@ body {
     padding-bottom: 0.5em;
 }
 .botonesSVG {
-  height: 7em;
-  width: 7.5em;
-  border-top: 0.2em solid var(--amarillo);
-  border-bottom: 0.2em solid var(--naranja);
-  border-radius: 0.3em;
-  box-sizing: border-box;
-  background-position: 100% 100%, 0 100% ;
-  background-repeat: no-repeat;
-  background-size: 0.2em 100%;
-  background-image: 
-  -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 50%), 
-  -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 50%);
+    height: 7em;
+    border-top: 0.2em solid var(--amarillo);
+    border-bottom: 0.2em solid var(--naranja);
+    border-radius: 0.3em;
+    box-sizing: border-box;
+    background-position: 100% 100%, 0 100% ;
+    background-repeat: no-repeat;
+    background-size: 0.2em 100%;
+    background-image: 
+    -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 50%), 
+    -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 50%);
     padding: 0.9em 1.3em;
     margin: 0.5em 1em;
     position:relative;
@@ -722,18 +721,22 @@ h5 {
         color: var(--violeta-claro);
         padding-bottom: 0.5em;
     }
+   
     .botonesSVG {
-        height: 2.75em;
-        border: 2px solid var(--naranja);
-        border-radius: 0.5em;
+        height: 4em;
+        border-top: 0.1em solid var(--amarillo);
+        border-bottom: 0.1em solid var(--naranja);
+        border-radius: 0.25em;
+        box-sizing: border-box;
+        background-position: 100% 100%, 0 100% ;
+        background-repeat: no-repeat;
+        background-size: 0.1em 100%;
+        background-image: 
+        -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 100%), 
+        -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 100%);
         padding: 0.7em 1em;
         margin: 0.4em 1em;
-        position:relative;
-        cursor: pointer;
-        -webkit-animation: shadow-pulse 1s infinite;
-                animation: shadow-pulse 1s infinite;
     }
-    
     .buttons {
         display: flex;
         flex-direction: column;
@@ -1009,13 +1012,19 @@ h1 {
     color: var(--blanco);
 }
 .botonesSVG {
-    height: 3em;
-    border: 1.25px solid var(--naranja);
-    border-radius: 0.5em;
-    padding: 0.8em 1.2em;
-    margin: 0.5em 0.5em 1em 0.5em;
-    position:relative;
-    cursor: pointer;
+    height: 5em;
+    border-top: 0.1em solid var(--amarillo);
+    border-bottom: 0.1em solid var(--naranja);
+    border-radius: 0.15em;
+    box-sizing: border-box;
+    background-position: 100% 100%, 0 100% ;
+    background-repeat: no-repeat;
+    background-size: 0.1em 100%;
+    background-image: 
+    -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 100%), 
+    -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 100%);
+    padding: 0.7em 1em;
+    margin: 0.3em 0.5em;
 }
 .buttons {
     display: flex;
@@ -1380,13 +1389,19 @@ h1 {
         color: var(--blanco);
     }
     .botonesSVG {
-        height: 7.5em;
-        border: 1.25px solid var(--naranja);
-        border-radius: 0.5em;
-        padding: 1.25em 2.25em;
-        margin: 0.25em 0.25em 0.25em 0.25em;
-        position:relative;
-        cursor: pointer;
+        height: 9em;
+        border-top: 0.2em solid var(--amarillo);
+        border-bottom: 0.2em solid var(--naranja);
+        border-radius: 0.15em;
+        box-sizing: border-box;
+        background-position: 100% 100%, 0 100% ;
+        background-repeat: no-repeat;
+        background-size: 0.2em 100%;
+        background-image: 
+        -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 100%), 
+        -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 100%);
+        padding: 1.25em 2em;
+        margin: 0.25em 0.85em;
     }
     .buttons {
         display: flex;
