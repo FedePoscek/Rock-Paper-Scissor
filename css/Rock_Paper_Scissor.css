@@ -1014,7 +1014,7 @@ h1 {
 .botonesSVG {
     height: 5em;
     width: 6em;
-    border-top: 0.1em solid var(--blanco);
+    border-top: 0.1em solid var(--amarillo);
     border-bottom: 0.1em solid var(--naranja);
     border-radius: 0.15em;
     box-sizing: border-box;
