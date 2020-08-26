@@ -3,13 +3,8 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:url(#SVGID_1_);}
+	.st0{fill:#FFCA00;}
 </style>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="255.957" y1="504.3" x2="255.957" y2="-37" gradientTransform="matrix(1 0 0 -1 0 511)">
-	<stop  offset="0" style="stop-color:#F7E9A2"/>
-	<stop  offset="0.4586" style="stop-color:#F7BA00"/>
-	<stop  offset="0.996" style="stop-color:#F77300"/>
-</linearGradient>
 <path class="st0" d="M231.2,216.3c1.4,2.9,4.2,5,7.4,5.5l29.8,4.7l-87.8,107l27.3-81.2c1-2.8,0.6-5.9-1-8.5
 	c-1.6-2.5-4.2-4.2-7.2-4.6l-33.1-4.3l21.7-60.3h61.3l-18.1,32.5C229.9,210,229.8,213.4,231.2,216.3z M417.6,117
 	C379,34.5,241.6,10.8,212.1,6.7c-23.3,33.1-12,67.9-11.5,69.4c1.3,3.8,0.2,8-2.8,10.7s-7.3,3.3-10.9,1.6l-75.6-35.9
