@@ -14,8 +14,8 @@
     --verde: #AABD27;
     --verde-RGB: 170, 189, 39;
     --naranja: #ff7600;
-    --amarillo: #FFD400;
-    --amarillo-RGB: 255, 212, 0;
+    --amarillo: #FFCA00;
+    --amarillo-RGB: 255, 202, 0;
     --blanco: white;
     --negro: black;
     overflow-x: hidden;
@@ -350,6 +350,11 @@ body {
     font-weight: 800;
     font-size: 3.4em;
     text-align: center;
+    /* DEGRADE DE TEXTO
+    background: -webkit-linear-gradient(var(--amarillo), var(--naranja));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    */ 
     color: var(--amarillo);
     padding-bottom: 0.15em;
     display: flex;
