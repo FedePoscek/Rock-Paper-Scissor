@@ -1,3 +1,27 @@
+window.onload = function Splash(event) {
+    event.preventDefault();
+
+    if (sessionStorage.getItem("idUser")) {
+        document.getElementById('popup_register').style.display = "none";
+        let div = document.createElement('div');
+            div.innerHTML = sessionStorage.getItem("idUser");
+            counterH.appendChild(div);
+    } else {
+        console.log("NO hay ningún nombre guardado");
+    }
+};
+
+
+function currentGame() {
+    location.reload();
+    console.log("Seguimos!");
+}
+
+function newGame() {
+    console.log("Arrancamos otra vez!");
+    sessionStorage.removeItem("idUser");
+    location.reload();
+}
 // var options = ["piedra", "papel", "tijera"];
 // counterM == Counter Machine
 // counterH == Counter Human
@@ -16,10 +40,38 @@ var options = [0, 1, 2],
     counterM = document.getElementById('counterM'),
     counterH = document.getElementById('counterH'),
     numberCounterM = document.getElementById('numberCounterM'),
-    numberCounterH = document.getElementById('numberCounterH');
-   
+    numberCounterH = document.getElementById('numberCounterH'),
+    noNamePlayer = sessionStorage.getItem("idUser") || "HUMAN",
+    namePlayer;
+    // namePlayer = prompt("ingresá tu nombre").toUpperCase();
+    
 // ------ finalización de declaración de variables globales
         
+
+
+
+
+function idHumanPlayer() {
+    // popup_register.style.display = "none";
+   
+    namePlayer = (document.getElementById('inputName').value).toUpperCase();
+    sessionStorage.setItem("idUser", namePlayer);
+    console.log(`sessionStorage = ${sessionStorage.getItem("idUser")}`);
+// Creo un div para cargar el nombre del jugador y si no hay nada va "Human"
+
+    let div = document.createElement('div');
+        if (namePlayer){
+            div.innerHTML = `${namePlayer}`;
+            counterH.appendChild(div);
+            console.log(namePlayer);
+        } else {
+            div.innerHTML = `${noNamePlayer}`;
+            counterH.appendChild(div);
+            console.log(noNamePlayer);
+        };
+        ;
+}
+
 
 
 //función para random de elección máquina
@@ -32,6 +84,7 @@ function randomNumber(min, max){
 //función para elección humano
 function Humano(choiceHuman) {
     
+        namePlayer = (document.getElementById('inputName').value).toUpperCase();
     // ------ inicio de declaración de variables locales
 
         var user = document.getElementById('user'),
@@ -225,18 +278,21 @@ function ColorCounter() {
         counterM.style.color = 'var(--rojo)';
         numberCounterH.style.color = 'var(--verde)';
         numberCounterM.style.color = 'var(--rojo)';
+        counterH.textContent = namePlayer || noNamePlayer;
     // si va ganando Máquina    
     } else if (counterHuman < counterMachine) {
         counterH.style.color = 'var(--rojo)';
         counterM.style.color = 'var(--verde)';
         numberCounterH.style.color = 'var(--rojo)';
         numberCounterM.style.color = 'var(--verde)';
+        counterH.textContent = namePlayer || noNamePlayer;
     // si van empatando
     } else {
         counterH.style.color = 'var(--blanco)';
         counterM.style.color = 'var(--blanco)';
         numberCounterH.style.color = 'var(--blanco)';
         numberCounterM.style.color = 'var(--blanco)';
+        counterH.textContent = namePlayer || noNamePlayer;
     }
 }
 
@@ -276,7 +332,7 @@ function CounterAnimationM() {
 function youWon() {
     counter.textContent = 'YOU WON!';
     counter.style.color = 'var(--verde)';
-    counterH.textContent = 'HUMAN';
+    counterH.textContent = namePlayer;
     numberCounterH.textContent = ++counterHuman;
     ColorCounter();
     CounterResults();
@@ -332,16 +388,20 @@ function CounterResults() {
                 // para las posiciones [3] y [4] del array, en caso de no haber valor, muestra un espacio vacio
                 finalBackground.innerHTML = `
                     <h1>YOU WON!!</h1>
-                    <h2>Human: ${counterHuman}</h2>
-                    <h2>Machine: ${counterMachine}</h2>
+                    <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
+                    <h2>MACHINE: ${counterMachine}</h2>
                     <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
                     <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <button class="boton" onclick="reloadGame()">PLAY AGAIN !!!</button>
+                    <button class="boton" onclick="currentGame()">WANNA REMATCH ${sessionStorage.getItem("idUser")}?</button>
+                    <br>
+                    <button class="boton" onclick="newGame()">NEW PLAYER!</button>
                     `;
                 },500);
+                
+               
 
         } else {
             if (counterMachine === 3) {
@@ -354,19 +414,20 @@ function CounterResults() {
                 // para las posiciones [3] y [4] del array, en caso de no haber valor, muestra un espacio vacio
                 finalBackground.innerHTML = `
                     <h1>YOU LOST!!</h1>
-                    <h2>Human: ${counterHuman}</h2>
-                    <h2>Machine: ${counterMachine}</h2>
+                    <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
+                    <h2>MACHINE: ${counterMachine}</h2>
                     <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
                     <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <button class="boton" onclick="reloadGame()">PLAY AGAIN !!!</button>
+                    <button class="boton" onclick="currentGame()">WANNA REMATCH ${sessionStorage.getItem("idUser")}?</button>
+                    <br>
+                    <button class="boton" onclick="newGame()">NEW PLAYER!</button>
                     `;
-                },500);                
-            }
+                },500);     
+            }  
         }
-    
 }
 
 //función para recargar la pantalla y comenzar otra vez

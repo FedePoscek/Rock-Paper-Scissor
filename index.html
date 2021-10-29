@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/Rock_Paper_Scissor.css">
     <link rel="icon" type="image/png" href="png/favicon_RPS.png" sizes="32x32">
     <script defer type="text/javascript" src="js/RPS-app.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Exo:300,400,700,800,900&display=swap" rel="stylesheet">
     <!-- font-family: 'Exo', sans-serif; -->
 </head>
@@ -74,7 +75,7 @@
         
         <div id="scores">
             <div>
-                <div id="counterH" class="scoreHuman">HUMAN</div>
+                <div id="counterH" class="scoreHuman"></div>
                 <div id="numberCounterH" class="numberCounterH">0</div>
             </div>
             <div>
@@ -91,10 +92,36 @@
         <p class="descriptiveText-mini">• • Designed and developed by Federico Poscek • •</p> 
     </div>
 
-     <!-- FINAL SCREEN -->
+    <!-- FINAL SCREEN -->
 
-     <div id="finalScreen"></div>
+    <div id="finalScreen"></div>
 
-</div>
+
+    <!--  POP-UP SET USER-->
+    <!-- POP-UP -->
+    <div id="popup_register" class="popup_register">
+        <!-- POP-UP CONTENT -->
+        <div class="popup_register-content rebote">
+  
+            <div class="logo_popup"><img id="logo_popup-img" src="svg/title.svg" alt="Botella Recompensa"></div>
+            
+            <div id="cambio" class="popup_text_principal">TELL US YOUR NAME!</div>
+            
+            <div class="input_container" id="input_container">
+                <form id="form">
+                <input type="text" class="popup_input" id="inputName" maxlength="10">
+            </div>
+            <div id="popup_text_secondary" class="popup_text_secondary">(10 letters max)</div>
+            <div class="popUp_container_boton">
+                <input class="boton" id="boton_enter" type="submit" onclick="idHumanPlayer()" name="submit" value="LET'S PLAY!" aria-label="Enviar">
+                <!-- <a class="boton" id="boton_enter" type="submit" href="#" alt="Enter">ENTER</a> -->
+            </div>
+        </form>
+              <!-- <div class="popup_text_secondary">Al ingresar usted acepta los términos y condiciones. A favor del consumo responsable y moderado. 2021 Bodega Recompensa. Todos los derechos reservados.</div> -->
+
+        </div>
+    </div>
+ 
+    </div>
 </body>  
 </html>
