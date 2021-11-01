@@ -376,7 +376,7 @@ function CounterResults() {
         if (counterHuman === 3) {
 
                 setTimeout(function(){
-                finalBackground.style.display = 'block';
+                finalBackground.style.display = 'flex';
                 finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
 
                 // con JavaScript Template Literals
@@ -390,6 +390,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
+                    <br>
                     <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
                     <br>
                     <button class="boton" onclick="newGame()">NEW PLAYER!</button>
@@ -399,7 +400,7 @@ function CounterResults() {
             if (counterMachine === 3) {
 
                 setTimeout(function(){
-                finalBackground.style.display = 'block';
+                finalBackground.style.display = 'flex';
                 finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
 
                 // con JavaScript Template Literals
@@ -413,6 +414,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
+                    <br>
                     <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
                     <br>
                     <button class="boton" onclick="newGame()">NEW PLAYER!</button>

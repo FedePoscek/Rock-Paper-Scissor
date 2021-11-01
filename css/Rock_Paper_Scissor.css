@@ -461,7 +461,12 @@ hr.signLine {
 
 
 /* -------- FINAL SCREEN -------- */
-
+.finalResults {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #finalScreen {
     position: fixed;
     height: 100%;
@@ -470,13 +475,16 @@ hr.signLine {
     left: 0;
     z-index: 4;
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
     color: var(--negro);
     font-size: 15vh;
     font-weight: 900;
-    margin: 20vh auto 1vh auto;
+    margin: 0 auto;
     text-shadow: 0.03em 0.03em var(--amarillo);
     -webkit-animation: winLoose 2.2s ease infinite both;
             animation: winLoose 2.2s ease infinite both;
@@ -983,7 +991,6 @@ h5 {
 h1 {
     font-size: 12vw;
     font-weight: 900;
-    margin: 12vh auto 1vh auto;
 }
 }
 
@@ -1268,7 +1275,6 @@ h1 {
     color: var(--negro);
     font-size: 15vh;
     font-weight: 900;
-    margin: 20vh auto 1vh auto;
 }
 }
 
@@ -1645,6 +1651,5 @@ h1 {
         color: var(--negro);
         font-size: 15vh;
         font-weight: 900;
-        margin: 20vh auto 1vh auto;
     }
 }
