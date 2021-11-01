@@ -390,7 +390,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <button class="boton" onclick="currentGame()">WANNA REMATCH ${sessionStorage.getItem("idUser")}?</button>
+                    <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
                     <br>
                     <button class="boton" onclick="newGame()">NEW PLAYER!</button>
                     `;
@@ -413,7 +413,7 @@ function CounterResults() {
                     <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
                     <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
                     <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <button class="boton" onclick="currentGame()">WANNA REMATCH ${sessionStorage.getItem("idUser")}?</button>
+                    <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
                     <br>
                     <button class="boton" onclick="newGame()">NEW PLAYER!</button>
                     `;
