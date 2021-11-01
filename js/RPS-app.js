@@ -1,3 +1,4 @@
+// función onload para chequear que haya un usuario jugando (solo para "rematch..."")
 window.onload = function Splash(event) {
     event.preventDefault();
 
@@ -11,17 +12,20 @@ window.onload = function Splash(event) {
     }
 };
 
-
+// función sigue jugando haciendo click en "rematch..."
 function currentGame() {
     location.reload();
     console.log("Seguimos!");
 }
 
+// función para recargar la pantalla y comenzar otra vez
 function newGame() {
     console.log("Arrancamos otra vez!");
     sessionStorage.removeItem("idUser");
     location.reload();
 }
+
+// REFERECNIA DE VARIABLES
 // var options = ["piedra", "papel", "tijera"];
 // counterM == Counter Machine
 // counterH == Counter Human
@@ -48,11 +52,8 @@ var options = [0, 1, 2],
 // ------ finalización de declaración de variables globales
         
 
-
-
-
+// función para la generación del nombre del nuevo jugador
 function idHumanPlayer() {
-    // popup_register.style.display = "none";
    
     namePlayer = (document.getElementById('inputName').value).toUpperCase();
     sessionStorage.setItem("idUser", namePlayer);
@@ -69,19 +70,15 @@ function idHumanPlayer() {
             counterH.appendChild(div);
             console.log(noNamePlayer);
         };
-        ;
 }
 
-
-
-//función para random de elección máquina
+// función para random de elección máquina
 function randomNumber(min, max){
     var number = Math.floor(Math.random() * (max - min +1) + min);
         return number;
 }
 
-
-//función para elección humano
+// función para elección humano
 function Humano(choiceHuman) {
     
         namePlayer = (document.getElementById('inputName').value).toUpperCase();
@@ -188,7 +185,6 @@ function Humano(choiceHuman) {
                 document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
             };
 
-    // ------ finalización de declaración de variables locales
 
     // función para definir si gana Roca, Papel o Tijera y sus consecuencias
     choiceMachine = randomNumber(0,2);
@@ -270,7 +266,7 @@ function Humano(choiceHuman) {
 }
 
 
-//función para color de resultados
+// función para color de resultados
 function ColorCounter() {
     // si va ganando Humano
     if (counterHuman > counterMachine) {
@@ -297,7 +293,7 @@ function ColorCounter() {
 }
 
 
-//función para rotar números si gana el usuario
+// función para rotar números si gana el usuario
 function CounterAnimationH() {
     numberCounterH.animate([
         // keyframes
@@ -312,7 +308,7 @@ function CounterAnimationH() {
     });
 }
 
-//función para rotar números si gana la máquina
+// función para rotar números si gana la máquina
 function CounterAnimationM() {
     numberCounterM.animate([
         // keyframes
@@ -328,7 +324,7 @@ function CounterAnimationM() {
 }
 
 
-//funciones para textos de Ganador, Perdedor o Empate
+// funciones para textos de Ganador, Perdedor o Empate
 function youWon() {
     counter.textContent = 'YOU WON!';
     counter.style.color = 'var(--verde)';
@@ -370,8 +366,7 @@ function itsATie() {
 }
 
 
-
-//función para pantalla final y contador total de ganados y perdidos
+// función para pantalla final y contador total de ganados y perdidos
 function CounterResults() {
 
     // ------ inicio de declaración de variables locales
@@ -399,10 +394,7 @@ function CounterResults() {
                     <br>
                     <button class="boton" onclick="newGame()">NEW PLAYER!</button>
                     `;
-                },500);
-                
-               
-
+                },500);      
         } else {
             if (counterMachine === 3) {
 
@@ -428,9 +420,4 @@ function CounterResults() {
                 },500);     
             }  
         }
-}
-
-//función para recargar la pantalla y comenzar otra vez
-function reloadGame() {
-    location.reload();
 }
