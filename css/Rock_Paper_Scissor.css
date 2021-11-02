@@ -592,11 +592,11 @@ h4 {
 }
 h5 {
     color: var(--negro);
-    font-size: 1.85vh;
+    font-size: 2vh;
     font-weight: 700; 
     padding-top: 1.5vh;
+    line-height: 2.75vh;
 }
-
 
 /* INICIO - POP-UP CONTENT */
 /* El fondo del popup */

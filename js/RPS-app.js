@@ -12,6 +12,35 @@ window.onload = function Splash(event) {
     }
 };
 
+
+// REFERENCIA DE VARIABLES
+// var options = ["piedra", "papel", "tijera"];
+// counterM == Counter Machine
+// counterH == Counter Human
+// numberCounterM == Numero del contador Machine
+// numberCounterH == Numero del contador Humano
+// accumulatedUser == Array que acumula las iteraciones del Humano y las traduce en la placa final
+// accumulatedMachine == Array que acumula las iteraciones de la Máquina y las traduce en la placa final
+
+var options = [0, 1, 2],
+    accumulatedUser = [],
+    accumulatedMachine = [],
+    choiceMachine,
+    counterHuman = 0,
+    counterMachine = 0,
+    counter = document.getElementById('textoResultado'),
+    counterM = document.getElementById('counterM'),
+    counterH = document.getElementById('counterH'),
+    numberCounterM = document.getElementById('numberCounterM'),
+    numberCounterH = document.getElementById('numberCounterH'),
+    noNamePlayer = sessionStorage.getItem("idUser") || "HUMAN",
+    namePlayer,
+    user = document.getElementById('user'),
+    robot = document.getElementById('robot');
+    
+// ------ finalización de declaración de variables globales
+
+
 // función sigue jugando haciendo click en "rematch..."
 function currentGame() {
     location.reload();
@@ -24,33 +53,66 @@ function newGame() {
     sessionStorage.removeItem("idUser");
     location.reload();
 }
-
-// REFERECNIA DE VARIABLES
-// var options = ["piedra", "papel", "tijera"];
-// counterM == Counter Machine
-// counterH == Counter Human
-// numberCounterM == Numero del contador Machine
-// numberCounterH == Numero del contador Humano
-// acumuladoUsuario == Array que acumula las iteraciones del Humano y las traduce en la placa final
-// acumuladoMaquina == Array que acumula las iteraciones de la Máquina y las traduce en la placa final
-
-var options = [0, 1, 2],
-    acumuladoUsuario = [],
-    acumuladoMaquina = [],
-    choiceMachine,
-    counterHuman = 0,
-    counterMachine = 0,
-    counter = document.getElementById('textoResultado'),
-    counterM = document.getElementById('counterM'),
-    counterH = document.getElementById('counterH'),
-    numberCounterM = document.getElementById('numberCounterM'),
-    numberCounterH = document.getElementById('numberCounterH'),
-    noNamePlayer = sessionStorage.getItem("idUser") || "HUMAN",
-    namePlayer;
-    // namePlayer = prompt("ingresá tu nombre").toUpperCase();
-    
-// ------ finalización de declaración de variables globales
         
+
+// Animaciones
+// Animaciones para los iconos en empates
+function animationTie(element) {
+    element.animate(
+    [
+        // keyframes
+        { transform: 'rotate(10deg) scale(1)' }, 
+        { transform: 'rotate(-10deg) scale(0.9)' },
+        { transform: 'rotate(10deg) scale(0.9)' },
+        { transform: 'rotate(-10deg) scale(0.9)' },
+        { transform: 'rotate(10deg) scale(0.9)' },
+        { transform: 'rotate(0deg) scale(1)' },
+    ], { 
+        // tiempos
+        duration: 400,
+        iterations: 1,
+        easing: 'linear', 
+    }
+)};
+
+// Animaciones para los iconos de Robot y User
+function animationWon(element) {
+    element.animate(
+    [
+        // keyframes
+        { transform: 'translateY(0px)' }, 
+        { transform: 'translateY(-10px)' },
+        { transform: 'translateY(-35px)' },
+        { transform: 'translateY(-5px)' },
+        { transform: 'translateY(-10px)' },
+        { transform: 'translateY(-5px)' },
+        { transform: 'translateY(-2px)' },
+        { transform: 'translateY(-4px)' },
+        { transform: 'translateY(-2px)' },
+        { transform: 'translateY(-1px)' }
+    ], { 
+        // tiempos
+        duration: 500,
+        iterations: 1,
+        easing: 'ease', 
+    }
+)};
+
+// función para rotar números
+function CounterAnimation(element) {
+    element.animate([
+        // keyframes
+        { transform: 'rotateX(0deg)' }, 
+        { transform: 'rotateX(180deg)' },
+        { transform: 'rotateX(0deg)' }, 
+    ], { 
+        // tiempos
+        duration: 200,
+        iterations: 1,
+        easing: 'ease-out', 
+    });
+}
+
 
 // función para la generación del nombre del nuevo jugador
 function idHumanPlayer() {
@@ -82,84 +144,6 @@ function randomNumber(min, max){
 function Humano(choiceHuman) {
     
         namePlayer = (document.getElementById('inputName').value).toUpperCase();
-    // ------ inicio de declaración de variables locales
-
-        var user = document.getElementById('user'),
-            robot = document.getElementById('robot'),
-                
-            //Animaciones para los iconos de Robot y User en empates
-            animacionTie = function() {
-                robot.animate([
-                    // keyframes
-                    { transform: 'rotate(10deg) scale(1)' }, 
-                    { transform: 'rotate(-10deg) scale(0.9)' },
-                    { transform: 'rotate(10deg) scale(0.9)' },
-                    { transform: 'rotate(-10deg) scale(0.9)' },
-                    { transform: 'rotate(10deg) scale(0.9)' },
-                    { transform: 'rotate(0deg) scale(1)' },
-                ], { 
-                    // timing options
-                    duration: 400,
-                    iterations: 1,
-                    easing: 'linear', 
-                });
-                user.animate([
-                    // keyframes
-                    { transform: 'rotate(10deg) scale(1)' }, 
-                    { transform: 'rotate(-10deg) scale(0.9)' },
-                    { transform: 'rotate(10deg) scale(0.9)' },
-                    { transform: 'rotate(-10deg) scale(0.9)' },
-                    { transform: 'rotate(10deg) scale(0.9)' },
-                    { transform: 'rotate(0deg) scale(1)' },
-                ], { 
-                    // timing options
-                    duration: 400,
-                    iterations: 1,
-                    easing: 'linear', 
-                });
-                },
-        
-            animacionRobotWon = function() {
-                robot.animate([
-                    // keyframes
-                    { transform: 'translateY(0px)' }, 
-                    { transform: 'translateY(-10px)' },
-                    { transform: 'translateY(-35px)' },
-                    { transform: 'translateY(-5px)' },
-                    { transform: 'translateY(-10px)' },
-                    { transform: 'translateY(-5px)' },
-                    { transform: 'translateY(-2px)' },
-                    { transform: 'translateY(-4px)' },
-                    { transform: 'translateY(-2px)' },
-                    { transform: 'translateY(-1px)' }
-                ], { 
-                    // timing options
-                    duration: 500,
-                    iterations: 1,
-                    easing: 'ease', 
-                });
-                },
-
-            animacionUserWon = function() {
-                user.animate([
-                    // keyframes
-                    { transform: 'translateY(0px)' }, 
-                    { transform: 'translateY(-10px)' },
-                    { transform: 'translateY(-35px)' },
-                    { transform: 'translateY(-5px)' },
-                    { transform: 'translateY(-10px)' },
-                    { transform: 'translateY(-5px)' },
-                    { transform: 'translateY(-2px)' },
-                    { transform: 'translateY(-4px)' },
-                    { transform: 'translateY(-2px)' },
-                    { transform: 'translateY(-1px)' }
-                ], { 
-                    // timing options
-                    duration: 500,
-                    iterations: 1,
-                    easing: 'ease', 
-                });
-                },
 
             //funciones para cambios de icono Machine
             robotPaper = function() {
@@ -172,6 +156,7 @@ function Humano(choiceHuman) {
                     robot.src='svg/rockstar_main.svg';
                 },
 
+             //funciones para cambios de icono User
             userPaper = function() {
                     user.src='svg/toilet-paper_main.svg';
                 },
@@ -181,6 +166,7 @@ function Humano(choiceHuman) {
             userRock = function() {
                     user.src='svg/rockstar_main.svg';
                 },
+
             continueText = function() {
                 document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
             };
@@ -195,74 +181,77 @@ function Humano(choiceHuman) {
         if(choiceHuman == 0) { // humano eligió piedra 
             userRock();
             continueText();
-            acumuladoUsuario.push("Rock");
+            accumulatedUser.push("Rock");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
                 robotPaper();
-                animacionRobotWon();
-                acumuladoMaquina.push(" loses - Paper wins");
-                CounterAnimationM();
+                animationWon(robot);
+                accumulatedMachine.push(" loses - Paper wins");
+                CounterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youWon();
                 robotScissor();
-                animacionUserWon();
-                acumuladoMaquina.push(" wins - Scissors loses");
-                CounterAnimationH();
+                animationWon(user);
+                accumulatedMachine.push(" wins - Scissors loses");
+                CounterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 itsATie();
                 robotRock();
-                animacionTie();
-                acumuladoUsuario.pop();
+                animationTie(user);
+                animationTie(robot);
+                accumulatedUser.pop();
             }
         }
         if (choiceHuman == 1) { // humano eligió papel 
             userPaper();
             continueText();
-            acumuladoUsuario.push("Paper");
+            accumulatedUser.push("Paper");
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
                 robotScissor();
-                animacionRobotWon();
-                acumuladoMaquina.push(" loses - Scissors wins");
-                CounterAnimationM();
+                animationWon(robot);
+                accumulatedMachine.push(" loses - Scissors wins");
+                CounterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 youWon();
                 robotRock();
-                animacionUserWon();
-                acumuladoMaquina.push(" wins - Rock loses");
-                CounterAnimationH();
+                animationWon(user);
+                accumulatedMachine.push(" wins - Rock loses");
+                CounterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                 itsATie();
                 robotPaper();
-                animacionTie();
-                acumuladoUsuario.pop();
+                animationTie(user);
+                animationTie(robot);
+                accumulatedUser.pop();
             }
         }
         if (choiceHuman == 2) { // humano eligió tijera 
             userScissor();
             continueText();
-            acumuladoUsuario.push("Scissors");
+            accumulatedUser.push("Scissors");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youWon();
                 robotPaper();
-                animacionUserWon();
-                acumuladoMaquina.push(" wins - Paper loses");
-                CounterAnimationH();
+                animationWon(user);
+                accumulatedMachine.push(" wins - Paper loses");
+                CounterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 youLost();
                 robotRock();
-                animacionRobotWon();
-                acumuladoMaquina.push(" loses - Rock wins");
-                CounterAnimationM();
+                animationWon(robot);
+                accumulatedMachine.push(" loses - Rock wins");
+                CounterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 itsATie();
                 robotScissor();
-                animacionTie();
-                acumuladoUsuario.pop();
+                animationTie(user);
+                animationTie(robot);
+                accumulatedUser.pop();
             }
         }
-            console.log("usuario: " + acumuladoUsuario); //testeo en consola
-            console.log("maquina: " + acumuladoMaquina); //testeo en consola
+            console.log("usuario: " + accumulatedUser); //testeo en consola
+            console.log("maquina: " + accumulatedMachine); //testeo en consola
 }
 
 
@@ -290,37 +279,6 @@ function ColorCounter() {
         numberCounterM.style.color = 'var(--blanco)';
         counterH.textContent = namePlayer || noNamePlayer;
     }
-}
-
-
-// función para rotar números si gana el usuario
-function CounterAnimationH() {
-    numberCounterH.animate([
-        // keyframes
-        { transform: 'rotateX(0deg)' }, 
-        { transform: 'rotateX(180deg)' },
-        { transform: 'rotateX(0deg)' }, 
-    ], { 
-        // timing options
-        duration: 200,
-        iterations: 1,
-        easing: 'ease-out', 
-    });
-}
-
-// función para rotar números si gana la máquina
-function CounterAnimationM() {
-    numberCounterM.animate([
-        // keyframes
-        { transform: 'rotateX(0deg)' }, 
-        { transform: 'rotateX(180deg)' },
-        { transform: 'rotateX(0deg)' }, 
-    ], { 
-        // timing options
-        duration: 200,
-        iterations: 1,
-        easing: 'ease-out', 
-    });
 }
 
 
@@ -369,57 +327,44 @@ function itsATie() {
 // función para pantalla final y contador total de ganados y perdidos
 function CounterResults() {
 
-    // ------ inicio de declaración de variables locales
     var finalBackground = document.getElementById('finalScreen');
-    // ------ finalización de declaración de variables locales
+    
+    // función para realizar el listado de resultados de las partidas
+    function SummaryResults(){
+        var result = accumulatedUser.map( (item, ix) => item + accumulatedMachine[ix]+`<br>`);
+        console.log(result);
+        return `${result}`.replace(/,/g,"");
+    }
 
-        if (counterHuman === 3) {
-
-                setTimeout(function(){
-                finalBackground.style.display = 'flex';
-                finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
-
-                // con JavaScript Template Literals
-                // para las posiciones [3] y [4] del array, en caso de no haber valor, muestra un espacio vacio
-                finalBackground.innerHTML = `
-                    <h1>YOU WON!!</h1>
-                    <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
-                    <h2>MACHINE: ${counterMachine}</h2>
-                    <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
-                    <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
-                    <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
-                    <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
-                    <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <br>
-                    <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
-                    <br>
-                    <button class="boton" onclick="newGame()">NEW PLAYER!</button>
-                    `;
-                },500);      
-        } else {
-            if (counterMachine === 3) {
-
-                setTimeout(function(){
-                finalBackground.style.display = 'flex';
-                finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
-
-                // con JavaScript Template Literals
-                // para las posiciones [3] y [4] del array, en caso de no haber valor, muestra un espacio vacio
-                finalBackground.innerHTML = `
-                    <h1>YOU LOST!!</h1>
-                    <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
-                    <h2>MACHINE: ${counterMachine}</h2>
-                    <h5>${acumuladoUsuario[0]} ${acumuladoMaquina[0]}</h5>
-                    <h5>${acumuladoUsuario[1]} ${acumuladoMaquina[1]}</h5>
-                    <h5>${acumuladoUsuario[2]} ${acumuladoMaquina[2]}</h5>
-                    <h5>${acumuladoUsuario[3] || " "} ${acumuladoMaquina[3] || " "}</h5>
-                    <h5>${acumuladoUsuario[4] || " "} ${acumuladoMaquina[4] || " "}</h5>
-                    <br>
-                    <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
-                    <br>
-                    <button class="boton" onclick="newGame()">NEW PLAYER!</button>
-                    `;
-                },500);     
-            }  
-        }
+    if (counterHuman === 3) {
+            setTimeout(function(){
+            finalBackground.style.display = 'flex';
+            finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
+            finalBackground.innerHTML = `
+                <h1>YOU WON!!</h1>
+                <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
+                <h2>MACHINE: ${counterMachine}</h2>
+                <h5>${SummaryResults()}</h5>
+                <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
+                <br>
+                <button class="boton" onclick="newGame()">NEW PLAYER!</button>
+                `;
+            },500);      
+    } else {
+        if (counterMachine === 3) {
+            setTimeout(function(){
+            finalBackground.style.display = 'flex';
+            finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
+            finalBackground.innerHTML = `
+                <h1>YOU LOST!!</h1>
+                <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
+                <h2>MACHINE: ${counterMachine}</h2>
+                <h5>${SummaryResults()}</h5>
+                <button class="boton" onclick="currentGame()">WANNA REMATCH, ${sessionStorage.getItem("idUser")}?</button>
+                <br>
+                <button class="boton" onclick="newGame()">NEW PLAYER!</button>
+                `;
+            },500);     
+        }  
+    }
 }
