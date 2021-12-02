@@ -206,7 +206,7 @@ body {
     -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 50%), 
     -webkit-linear-gradient(top, var(--amarillo) 0%, var(--naranja) 50%);
     padding: 0.9em 1.3em;
-    margin: 0.5em 1em;
+    margin: 0.75em 1em;
     position:relative;
     cursor: pointer;
     -webkit-animation: shadow-pulse 1s infinite;
@@ -675,7 +675,7 @@ h5 {
     box-shadow: 0.25em 0.25em 0px 0px var(--violeta-claro);   
     outline: none;
 }
-.popUp_container_boton {
+.popUp_container_boton .popUp_container_boton_secondChance{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -882,6 +882,7 @@ h5 {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-end;
+        pointer-events: auto;
     }
     
     /* -------- HEADER -------- */

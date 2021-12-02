@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The popular Rock, Paper, Scissors!! game!">
+    <meta name="theme-color" content="#3E016D">
     <title>Rock, Paper, Scissors!!</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -24,9 +25,9 @@
     <div id="option" class="optionGrid">
         <div class="textOptionScore">CHOOSE:<br>ROCK, PAPER<br>OR SCISSORS?</div>
         <div class="buttons">
-            <img onclick="Humano(0);" id="piedra" class="botonesSVG" src="svg/rockstar_orange.svg" alt="Rockstar Icon">
-            <img onclick="Humano(1);" id="papel" class="botonesSVG" src="svg/toilet-paper_orange.svg" alt="Toilet Paper Icon">
-            <img onclick="Humano(2);" id="tijera" class="botonesSVG" src="svg/scissor_orange.svg" alt="Scissors Icon">
+            <input id="piedra" type="image" class="botonesSVG" src="svg/rockstar_orange.svg" alt="Rockstar Icon" >
+            <input id="papel" type="image" class="botonesSVG" src="svg/toilet-paper_orange.svg" alt="Toilet Paper Icon">
+            <input id="tijera" type="image" class="botonesSVG" src="svg/scissor_orange.svg" alt="Scissors Icon">
         </div>
 
     </div>
@@ -109,15 +110,20 @@
   
             <div class="logo_popup"><img id="logo_popup-img" src="svg/title.svg" alt="Botella Recompensa"></div>
             
-            <div id="cambio" class="popup_text_principal">TELL US YOUR NAME!</div>
+            <div id="cambio" class="popup_text_principal">TELL ME YOUR NAME<br>(Do not click without any name or you see!)</div>
             
             <div class="input_container" id="input_container">
                 <form id="form">
-                <input type="text" class="popup_input" id="inputName" maxlength="10">
+                <input type="text" class="popup_input" id="inputName" autofocus autocomplete="off" maxlength="10">
             </div>
             <div id="popup_text_secondary" class="popup_text_secondary">(10 letters max)</div>
-            <div class="popUp_container_boton">
-                <input class="boton" id="boton_enter" type="submit" onclick="idHumanPlayer()" name="submit" value="LET'S PLAY!" aria-label="Enviar">
+           
+            <div class="popUp_container_boton" id="popUp_container_boton">
+                <input class="boton" id="boton_enter" type="submit"  name="submit" value="LET'S PLAY!" aria-label="Enviar">
+            </div>
+           
+            <div class="popUp_container_boton" id="popUp_container_boton_secondChance">
+                <input class="boton" id="boton_enter_secondChance" type="submit" name="submit" value="LET'S PLAY!???" aria-label="Enviar">
             </div>
         </form>
         </div>
