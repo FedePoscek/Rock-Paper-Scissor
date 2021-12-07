@@ -6,7 +6,6 @@
 // numberCounterH == Numero del contador Humano
 // accumulatedUser == Array que acumula las iteraciones del Humano y las traduce en la placa final
 // accumulatedMachine == Array que acumula las iteraciones de la Máquina y las traduce en la placa final
-
 var options = [0, 1, 2],
     accumulatedUser = [],
     accumulatedMachine = [],
@@ -31,6 +30,20 @@ var options = [0, 1, 2],
     startSecondChance.style.display = "none";
 // ------ finalización de declaración de variables globales
 
+// Array para cargar los iconos que rotan
+var imagesIcons = new Array(
+    ['svg/rockstar_main.svg'],
+    ['svg/toilet-paper_main.svg'],
+    ['svg/scissor_main.svg'],
+    ['svg/user_main.svg'],
+    ['svg/robot_main.svg'],
+    ['svg/spock_main.svg']
+);
+
+// función para definir los iconos del array imagesIcons
+function selectedIcons(player, icon){
+    player.src = imagesIcons[icon];
+}
 
 // Creo los addEventListener para cada uno de los inputs de "LET'S PLAY", "LET'S PLAY Second chance", Rock, Paper y Scissor
 start.addEventListener("click", function(event){
@@ -128,7 +141,7 @@ function deactivateButtons() {
 }
 
 // activo los botones en cada evento que quedaron desactivados con deactivateButtons().
-function ActivateButtons() {
+function activateButtons() {
     rock.disabled = false;
     paper.disabled = false;
     scissor.disabled = false;
@@ -158,13 +171,13 @@ function currentGame() {
     counterM.style.color = 'var(--violeta-medio)',
     numberCounterH.style.color = 'var(--violeta-oscuro-degrade)',
     numberCounterM.style.color = 'var(--violeta-oscuro-degrade)',
-    user.src='svg/user_main.svg',
-    robot.src='svg/robot_main.svg';
-    CounterAnimation(user);
-    CounterAnimation(robot);
-    ActivateButtons();
+    document.body.style.backgroundImage = "linear-gradient(180deg, var( --violeta-oscuro-degrade), var(--violeta-claro))";
+    selectedIcons(user, 3);
+    selectedIcons(robot, 4);
+    counterAnimation(user);
+    counterAnimation(robot);
+    activateButtons();
         console.log("Seguimos!");
-
 }
 
 
@@ -216,7 +229,7 @@ function animationWon(element) {
 )};
 
 // función para rotar números
-function CounterAnimation(element) {
+function counterAnimation(element) {
     element.animate([
         // keyframes
         { transform: 'rotateX(0deg)' }, 
@@ -230,15 +243,6 @@ function CounterAnimation(element) {
     });
 }
 
-// Array para cargar los iconos que rotan
-var imagesIcons = new Array(
-    ['svg/toilet-paper_main.svg'],
-    ['svg/scissor_main.svg'],
-    ['svg/rockstar_main.svg'],
-    // ['svg/user_main.svg'],
-    // ['svg/robot_main.svg'],
-    ['svg/spock_main.svg']
-);
 
 function rotateImagesIcons(){
     var index = Math.floor((Math.random() * imagesIcons.length));
@@ -259,31 +263,11 @@ function Humano(choiceHuman) {
    
     namePlayer = (document.getElementById('inputName').value).toUpperCase();
 
-        //funciones para cambios de icono Machine - si no los defino como función siempre muestra la imagen de la última variable (en este caso: rock);
-        robotPaper = function() {
-                robot.src='svg/toilet-paper_main.svg';
-            },
-        robotScissor = function() {
-                robot.src='svg/scissor_main.svg';
-            },
-        robotRock = function() {
-                robot.src='svg/rockstar_main.svg';
-            },
-
-            //funciones para cambios de icono User
-        userPaper = function() {
-                user.src='svg/toilet-paper_main.svg';
-            },
-        userScissor = function() {
-                user.src='svg/scissor_main.svg';
-            },
-        userRock = function() {
-                user.src='svg/rockstar_main.svg';
-            },
-
-        continueText = function() {
-            document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
-        };
+    //funciones para cambios de icono Machine - si no los defino como función siempre muestra la imagen de la última variable (en este caso: rock);
+    
+    continueText = function() {
+        document.getElementById('descriptiveText').textContent = '(click in one of 3 options to continue playing!)';
+    };
 
     // la máquina define un número random y su consecuente opción
     choiceMachine = randomNumber(0,2);
@@ -305,75 +289,81 @@ function Humano(choiceHuman) {
             return;
         }   
         if(choiceHuman == 0) { // humano eligió piedra 
-            userRock();
+            selectedIcons(user, 0);
             continueText();
             accumulatedUser.push("Rock");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
-                robotPaper();
+                selectedIcons(robot, 1);
                 animationWon(robot);
                 accumulatedMachine.push(" loses - Paper wins");
-                CounterAnimation(numberCounterM);
+                counterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youWon();
-                robotScissor();
+                selectedIcons(robot, 2);
                 animationWon(user);
                 accumulatedMachine.push(" wins - Scissors loses");
-                CounterAnimation(numberCounterH);
+                counterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 itsATie();
-                robotRock();
+                selectedIcons(robot, 0);
                 animationTie(user);
                 animationTie(robot);
                 accumulatedUser.pop();
+            } else {
+                console.log("error");
             }
         }
         if (choiceHuman == 1) { // humano eligió papel 
-            userPaper();
+            selectedIcons(user, 1);
             continueText();
             accumulatedUser.push("Paper");
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
-                robotScissor();
+                selectedIcons(robot, 2);
                 animationWon(robot);
                 accumulatedMachine.push(" loses - Scissors wins");
-                CounterAnimation(numberCounterM);
+                counterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 youWon();
-                robotRock();
+                selectedIcons(robot, 0);
                 animationWon(user);
                 accumulatedMachine.push(" wins - Rock loses");
-                CounterAnimation(numberCounterH);
+                counterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                 itsATie();
-                robotPaper();
+                selectedIcons(robot, 1);
                 animationTie(user);
                 animationTie(robot);
                 accumulatedUser.pop();
+            } else {
+                console.log("error");
             }
         }
         if (choiceHuman == 2) { // humano eligió tijera 
-            userScissor();
+            selectedIcons(user, 2);
             continueText();
             accumulatedUser.push("Scissors");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youWon();
-                robotPaper();
+                selectedIcons(robot, 1);
                 animationWon(user);
                 accumulatedMachine.push(" wins - Paper loses");
-                CounterAnimation(numberCounterH);
+                counterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 youLost();
-                robotRock();
+                selectedIcons(robot, 0);
                 animationWon(robot);
                 accumulatedMachine.push(" loses - Rock wins");
-                CounterAnimation(numberCounterM);
+                counterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 itsATie();
-                robotScissor();
+                selectedIcons(robot, 2);
                 animationTie(user);
                 animationTie(robot);
                 accumulatedUser.pop();
+            } else {
+                console.log("error");
             }
         }
             console.log("usuario: " + accumulatedUser); //testeo en consola
@@ -388,7 +378,7 @@ function Humano(choiceHuman) {
 
 
 // función para color de resultados
-function ColorCounter() {
+function colorCounter() {
     // si va ganando Humano
     if (counterHuman > counterMachine) {
         counterH.style.color = 'var(--verde)';
@@ -403,7 +393,19 @@ function ColorCounter() {
         numberCounterH.style.color = 'var(--rojo)';
         numberCounterM.style.color = 'var(--verde)';
         counterH.textContent = namePlayer || noNamePlayer;
-    // si van empatando
+    // si van empatando y es la última ronda
+    } else if ((counterHuman == 2) && (counterMachine == 2)) {
+        counterH.style.color = 'var(--rojo)';
+        counterM.style.color = 'var(--rojo)';
+        numberCounterH.style.color = 'var(--rojo)';
+        numberCounterM.style.color = 'var(--rojo)';
+        document.body.style.backgroundImage = "linear-gradient(180deg, var( --violeta-oscuro), var(--violeta-claro))";
+        setTimeout(function(){
+            counter.textContent = 'MATCHPOINT!!';
+            counter.style.color = 'var(--blanco)';
+        },760);
+        counterH.textContent = namePlayer || noNamePlayer;
+    // si van empatando 
     } else {
         counterH.style.color = 'var(--blanco)';
         counterM.style.color = 'var(--blanco)';
@@ -420,8 +422,8 @@ function youWon() {
     counter.style.color = 'var(--verde)';
     counterH.textContent = namePlayer;
     numberCounterH.textContent = ++counterHuman;
-    ColorCounter();
-    CounterResults();
+    colorCounter();
+    counterResults();
         setTimeout(function(){
             counter.textContent = 'YOU\'RE IN LUCK!!';
             counter.style.color = 'var(--verde)';
@@ -433,10 +435,10 @@ function youLost() {
     counter.style.color = 'var(--rojo)';
     counterM.textContent = 'MACHINE';
     numberCounterM.textContent = ++counterMachine;
-    ColorCounter();
-    CounterResults();
+    colorCounter();
+    counterResults();
         setTimeout(function(){
-            counter.textContent = 'WANNA REMATCH??';
+            counter.textContent = 'TRY AGAIN!';
             counter.style.color = 'var(--rojo)';
         },750);
 }
@@ -444,8 +446,8 @@ function youLost() {
 function itsATie() {
     counter.textContent = 'IT\'S A TIE!';
     counter.style.color = 'var(--blanco)';
-    ColorCounter();
-    CounterResults();
+    colorCounter();
+    counterResults();
         setTimeout(function(){
             counter.textContent = 'TIE THIS OFF!!';
             counter.style.color = 'var(--blanco)';
@@ -454,47 +456,41 @@ function itsATie() {
 
 
 // función para realizar el listado de resultados de las partidas
-function SummaryResults(){
+function summaryResults(){
     var result = accumulatedUser.map( (item, ix) => item + accumulatedMachine[ix]+`<br>`);
-    console.log("resultado: " + result);
+        console.log("resultado: " + result);
     return `${result}`.replace(/,/g,"");
 }
 
 
-// función para pantalla final y contador total de ganados y perdidos
-function CounterResults() {
+// función para datos genéricos de pantalla final y contador total de ganados y perdidos
+function genericResults(colorBackground, result){
 
     var finalBackground = document.getElementById('finalScreen');
 
+    setTimeout(function(){
+        finalBackground.style.display = 'flex';
+        finalBackground.style.backgroundColor = colorBackground;
+        finalBackground.innerHTML = `
+            <h1>${result}</h1>
+            <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
+            <h2>MACHINE: ${counterMachine}</h2>
+            <h5>${summaryResults()}</h5>
+            <button class="boton" onclick="currentGame()">WANNA REMATCH, ${namePlayer || noNamePlayer}?</button>
+            <br>
+            <button class="boton" onclick="newGame()">NEW PLAYER!</button>
+            `;
+        },500);      
+}
+
+
+// disparador de pantalla final y paso los parametros para ganador o perdedor
+function counterResults() {
     if (counterHuman === 3) {
-            setTimeout(function(){
-            finalBackground.style.display = 'flex';
-            finalBackground.style.backgroundColor = 'rgba(var(--verde-RGB), 0.8)';
-            finalBackground.innerHTML = `
-                <h1>YOU WON!!</h1>
-                <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
-                <h2>MACHINE: ${counterMachine}</h2>
-                <h5>${SummaryResults()}</h5>
-                <button class="boton" onclick="currentGame()">WANNA REMATCH, ${namePlayer || noNamePlayer}?</button>
-                <br>
-                <button class="boton" onclick="newGame()">NEW PLAYER!</button>
-                `;
-            },500);      
+        genericResults("rgba(var(--verde-RGB), 0.8)", "YOU WON!!");
+    } else if (counterMachine === 3) {
+            genericResults("rgba(var(--rojo-RGB), 0.8)", "YOU LOST!!");
     } else {
-        if (counterMachine === 3) {
-            setTimeout(function(){
-            finalBackground.style.display = 'flex';
-            finalBackground.style.backgroundColor = 'rgba(var(--rojo-RGB), 0.8)';
-            finalBackground.innerHTML = `
-                <h1>YOU LOST!!</h1>
-                <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
-                <h2>MACHINE: ${counterMachine}</h2>
-                <h5>${SummaryResults()}</h5>
-                <button class="boton" onclick="currentGame()">WANNA REMATCH, ${namePlayer || noNamePlayer}?</button>
-                <br>
-                <button class="boton" onclick="newGame()">NEW PLAYER!</button>
-                `;
-            },500);     
-        }  
+        console.log("Sigue el juego");
     }
 }
