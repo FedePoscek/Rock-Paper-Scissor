@@ -593,7 +593,7 @@ h4 {
 }
 h5 {
     color: var(--negro);
-    font-size: 2vh;
+    font-size: 1.75vw;
     font-weight: 700; 
     padding-top: 1.5vh;
     line-height: 2.75vh;
