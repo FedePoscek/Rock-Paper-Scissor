@@ -1,27 +1,19 @@
-
 /* VARIABLES DE COLORES */
-
 :root {
     --violeta-oscuro: #1B0030;
     --violeta-oscuro-RGB: 27, 0, 48;
     --violeta-oscuro-degrade: #480e74;
     --violeta-medio: #3E016D;
-    --violeta-medio-RGB: 62, 1, 109;
     --violeta-claro: #A500F8;
-    --violeta-claro-RGB: 165, 0, 248;
     --rojo: #FF0059;
     --rojo-RGB: 255, 0, 89;
     --verde: #bcd610;
     --verde-RGB: 188, 214, 16;
     --naranja: #ff7600;
     --amarillo: #FFCA00;
-    --amarillo-RGB: 255, 202, 0;
     --blanco: white;
-    --blanco_RGB: 255, 255, 255;
     --negro: black;
     --negro_RGB: 0, 0, 0;
-    --color_principal_B: #d13b1f;
-    --color_secundario_01B: #282828;
     overflow-x: hidden;
 }
 
@@ -1256,13 +1248,13 @@ hr.signLineFooter {
     font-weight: 900;
     font-size: 1.25em;
     text-align: center;
-    color: rgba(var(--violeta-oscuro-RGB), 0.3);
+    color: var(--violeta-claro);
     padding: 0em 0.5em 0.15em 0.5em;
 }
 .scoreLine {
     display: inline-block;
     width: 9vw;
-    border: 0.5px solid var(--violeta-medio);
+    border: 0.5px solid var(--violeta-claro);
     padding: auto 1em;
 }
 /* -------- SIGN -------- */
