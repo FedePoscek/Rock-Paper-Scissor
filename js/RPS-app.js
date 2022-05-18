@@ -26,9 +26,65 @@ var options = [0, 1, 2],
     paper = document.getElementById("papel"),
     scissor = document.getElementById("tijera"),
     start = document.getElementById('popUp_container_boton'),
-    startSecondChance = document.getElementById("boton_enter_secondChance");
+    startSecondChance = document.getElementById('boton_enter_secondChance');
     startSecondChance.style.display = "none";
 // ------ finalización de declaración de variables globales
+
+
+// ------ Inicio Saludo de cada día
+
+// Array para textos de saludos de cada día de la semana
+var dayOfTheWeek = [
+    "The weekend is almost over!", 
+    "Monday?, work?, study?, naaaa!", 
+    "Playing on a Tuesday? ...I envy you!", 
+    "Wednesday, the midweek day", 
+    "Thursday is almost weekend!", 
+    "Friday should be a day of the weekend!", 
+    "Hey!, It's Saturday!."
+    ];
+
+var d = new Date();
+var dayOf = d.getDay();
+
+// función para obtener el día actual para la pantalla de inicio
+function getWeekDay() {
+    switch (dayOf){
+        case 0: return dayOfTheWeek[0]; /* Sunday */
+        case 1: return dayOfTheWeek[1]; /* Monday */
+        case 2: return dayOfTheWeek[2]; /* Tuesday */
+        case 3: return dayOfTheWeek[3]; /* Wednesday */
+        case 4: return dayOfTheWeek[4]; /* Thursady */
+        case 5: return dayOfTheWeek[5]; /* Friday */
+        case 6: return dayOfTheWeek[6]; /* Saturday */
+    }
+}
+
+var dayToday = getWeekDay();
+var greetingsDay = document.getElementById('dayToday');
+    greetingsDay.style.display = "inline-block"
+    greetingsDay.innerHTML = `${dayToday}`;
+    
+// Short version
+// function getWeekDay() {
+//     switch (new Date().getDay()){
+//         case 0: return "The weekend is almost over!.";
+//         case 1: return "Monday?, work?, study?, naaaa!.";
+//         case 2: return "Playing on a Tuesday? I envy you!.";
+//         case 3: return "Wednesday, the midweek day.";
+//         case 4: return "Thursday is almost weekend!.";
+//         case 5: return "Friday should be a day of the weekend!.";
+//         case 6: return "Hey!, It's Saturday!.";
+//     }
+// }
+
+// var greetingsDay = document.getElementById('dayToday');
+//     greetingsDay.style.display = "inline-block"
+//     greetingsDay.innerHTML = `${getWeekDay()}`;
+
+
+// ------ Fin Saludo de cada día
+
 
 // Array para cargar los iconos que rotan
 var imagesIcons = new Array(
@@ -91,7 +147,7 @@ function idHumanPlayer() {
     }  else if (!namePlayer){
 
         let noValidationName = document.getElementById('cambio');
-        noValidationName.textContent = "REALLY?? I dare you to do it again!";
+        noValidationName.textContent = "...no name? are you sure?";
         start.style.display = "none";
         startSecondChance.style.display = "flex"; //cambio de botón
         
@@ -117,7 +173,7 @@ function idHumanPlayer_secondChance() {
         noNamePlayer = "HUMANOID";
         let noValidationName = document.getElementById('cambio');
 
-        noValidationName.textContent = "NO NAME??, OK! ... then I'll call you: 'HUMANOID'";
+        noValidationName.textContent = "NO NAME!!, OK! ... then I'll call you: 'HUMANOID'";
         document.getElementById('popup_text_secondary').style.display = "none";
         document.getElementById('inputName').style.display = "none";
         startSecondChance.style.display = "none";
@@ -457,11 +513,10 @@ function itsATie() {
 
 // función para realizar el listado de resultados de las partidas
 function summaryResults(){
-    var result = accumulatedUser.map( (item, ix) => item + accumulatedMachine[ix]+`<br>`);
-        console.log("resultado: " + result);
+    var result = accumulatedUser.map( (item, ix) => `<h5><span style="color: #000">Round ${ix + 1}:</span> ${item} ${accumulatedMachine[ix]}</h5><br>`);
+        console.log(`resultado: ${result}`);
     return `${result}`.replace(/,/g,"");
 }
-
 
 // función para datos genéricos de pantalla final y contador total de ganados y perdidos
 function genericResults(colorBackground, result){
@@ -475,6 +530,7 @@ function genericResults(colorBackground, result){
             <h1>${result}</h1>
             <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
             <h2>MACHINE: ${counterMachine}</h2>
+            <br>
             <h5>${summaryResults()}</h5>
             <button class="boton" onclick="currentGame()">WANNA REMATCH, ${namePlayer || noNamePlayer}?</button>
             <br>
