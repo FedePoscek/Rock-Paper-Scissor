@@ -1375,6 +1375,12 @@ h1 {
         width: 87vw;
     }
 
+    /* -------- FINAL SCREEN -------- */
+
+    h5 {
+        line-height: 1rem;
+    }
+
     }
 
 

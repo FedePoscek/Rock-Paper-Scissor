@@ -299,7 +299,7 @@ function counterAnimation(element) {
     });
 }
 
-
+// función para rotar los iconos cuando se hace click en alguna opción 
 function rotateImagesIcons(){
     var index = Math.floor((Math.random() * imagesIcons.length));
     document.getElementById("user").src = imagesIcons[index][0];
@@ -347,18 +347,18 @@ function Humano(choiceHuman) {
         if(choiceHuman == 0) { // humano eligió piedra 
             selectedIcons(user, 0);
             continueText();
-            accumulatedUser.push("Rock");
+            accumulatedUser.push(`${namePlayer}` + " (Rock)");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
                 selectedIcons(robot, 1);
                 animationWon(robot);
-                accumulatedMachine.push(" loses - Paper wins");
+                accumulatedMachine.push(" loses - MACHINE (Paper) wins");
                 counterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youWon();
                 selectedIcons(robot, 2);
                 animationWon(user);
-                accumulatedMachine.push(" wins - Scissors loses");
+                accumulatedMachine.push(" wins - MACHINE (Scissors) loses");
                 counterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 itsATie();
@@ -373,18 +373,18 @@ function Humano(choiceHuman) {
         if (choiceHuman == 1) { // humano eligió papel 
             selectedIcons(user, 1);
             continueText();
-            accumulatedUser.push("Paper");
+            accumulatedUser.push(`${namePlayer}` + " (Paper)");
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
                 selectedIcons(robot, 2);
                 animationWon(robot);
-                accumulatedMachine.push(" loses - Scissors wins");
+                accumulatedMachine.push(" loses - MACHINE (Scissors) wins");
                 counterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 youWon();
                 selectedIcons(robot, 0);
                 animationWon(user);
-                accumulatedMachine.push(" wins - Rock loses");
+                accumulatedMachine.push(" wins - MACHINE (Rock) loses");
                 counterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 1) { // máquina eligió papel 
                 itsATie();
@@ -399,18 +399,18 @@ function Humano(choiceHuman) {
         if (choiceHuman == 2) { // humano eligió tijera 
             selectedIcons(user, 2);
             continueText();
-            accumulatedUser.push("Scissors");
+            accumulatedUser.push(`${namePlayer}` + " (Scissors)");
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youWon();
                 selectedIcons(robot, 1);
                 animationWon(user);
-                accumulatedMachine.push(" wins - Paper loses");
+                accumulatedMachine.push(" wins - MACHINE (Paper) loses");
                 counterAnimation(numberCounterH);
             } else if (options[choiceMachine] == 0) { // máquina eligió piedra 
                 youLost();
                 selectedIcons(robot, 0);
                 animationWon(robot);
-                accumulatedMachine.push(" loses - Rock wins");
+                accumulatedMachine.push(" loses - MACHINE (Rock) wins");
                 counterAnimation(numberCounterM);
             } else if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 itsATie();
