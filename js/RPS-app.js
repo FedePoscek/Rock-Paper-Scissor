@@ -85,20 +85,35 @@ var greetingsDay = document.getElementById('dayToday');
 
 // ------ Fin Saludo de cada día
 
-
-// Array para cargar los iconos que rotan
-var imagesIcons = new Array(
+// se hacen 2 arrays de rotación de iconos para que no quede igual en los dos
+// Array para cargar los iconos que rotan del lado del usuario
+var imagesIconsUser = new Array(
     ['svg/rockstar_main.svg'],
     ['svg/toilet-paper_main.svg'],
     ['svg/scissor_main.svg'],
     ['svg/user_main.svg'],
     ['svg/robot_main.svg'],
-    ['svg/spock_main.svg']
+    ['svg/spock_main.svg'],
+    ['svg/lizard_main.svg']
 );
 
-// función para definir los iconos del array imagesIcons
+// Array para cargar los iconos que rotan del lado de la máquina
+var imagesIconsMachine = new Array(
+    ['svg/user_main.svg'],
+    ['svg/rockstar_main.svg'],
+    ['svg/robot_main.svg'],
+    ['svg/spock_main.svg'],
+    ['svg/toilet-paper_main.svg'],
+    ['svg/lizard_main.svg'],
+    ['svg/scissor_main.svg']
+);
+
+
+
+
+// función para definir los iconos del array imagesIconsUser
 function selectedIcons(player, icon){
-    player.src = imagesIcons[icon];
+    player.src = imagesIconsUser[icon];
 }
 
 // Creo los addEventListener para cada uno de los inputs de "LET'S PLAY", "LET'S PLAY Second chance", Rock, Paper y Scissor
@@ -300,10 +315,10 @@ function counterAnimation(element) {
 }
 
 // función para rotar los iconos cuando se hace click en alguna opción 
-function rotateImagesIcons(){
-    var index = Math.floor((Math.random() * imagesIcons.length));
-    document.getElementById("user").src = imagesIcons[index][0];
-    document.getElementById("robot").src = imagesIcons[index][0];
+function rotateimagesIconsUser(){
+    var index = Math.floor((Math.random() * imagesIconsUser.length));
+    document.getElementById("user").src = imagesIconsUser[index][0];
+    document.getElementById("robot").src = imagesIconsMachine[index][0];
 }
 
 
@@ -333,8 +348,8 @@ function Humano(choiceHuman) {
         clearInterval(fin);
     }
 
-    rotateImagesIcons();
-    fin = setInterval(rotateImagesIcons,35);
+    rotateimagesIconsUser();
+    fin = setInterval(rotateimagesIconsUser,35);
     setTimeout(pararAnimacion, 400);
 
     // función para definir si gana Roca, Papel o Tijera y sus consecuencias
@@ -347,7 +362,7 @@ function Humano(choiceHuman) {
         if(choiceHuman == 0) { // humano eligió piedra 
             selectedIcons(user, 0);
             continueText();
-            accumulatedUser.push(`${namePlayer}` + " (Rock)");
+            accumulatedUser.push(`${namePlayer || noNamePlayer} (Rock)`);
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youLost();
                 selectedIcons(robot, 1);
@@ -373,7 +388,7 @@ function Humano(choiceHuman) {
         if (choiceHuman == 1) { // humano eligió papel 
             selectedIcons(user, 1);
             continueText();
-            accumulatedUser.push(`${namePlayer}` + " (Paper)");
+            accumulatedUser.push(`${namePlayer || noNamePlayer} (Paper)`);
             if (options[choiceMachine] == 2) { // máquina eligió tijera 
                 youLost();
                 selectedIcons(robot, 2);
@@ -399,7 +414,7 @@ function Humano(choiceHuman) {
         if (choiceHuman == 2) { // humano eligió tijera 
             selectedIcons(user, 2);
             continueText();
-            accumulatedUser.push(`${namePlayer}` + " (Scissors)");
+            accumulatedUser.push(`${namePlayer || noNamePlayer} (Scissors)`);
             if (options[choiceMachine] == 1) { // máquina eligió papel 
                 youWon();
                 selectedIcons(robot, 1);
@@ -514,7 +529,6 @@ function itsATie() {
 // función para realizar el listado de resultados de las partidas
 function summaryResults(){
     var result = accumulatedUser.map( (item, ix) => `<h5><span style="color: #000">Round ${ix + 1}:</span> ${item} ${accumulatedMachine[ix]}</h5><br>`);
-        console.log(`resultado: ${result}`);
     return `${result}`.replace(/,/g,"");
 }
 
