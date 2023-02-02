@@ -85,8 +85,7 @@ var greetingsDay = document.getElementById('dayToday');
 
 // ------ Fin Saludo de cada día
 
-// se hacen 2 arrays de rotación de iconos para que no quede igual en los dos
-// Array para cargar los iconos que rotan del lado del usuario
+// Array para cargar los iconos que rotan 
 var imagesIconsUser = new Array(
     ['svg/rockstar_main.svg'],
     ['svg/toilet-paper_main.svg'],
@@ -96,20 +95,6 @@ var imagesIconsUser = new Array(
     ['svg/spock_main.svg'],
     ['svg/lizard_main.svg']
 );
-
-// Array para cargar los iconos que rotan del lado de la máquina
-var imagesIconsMachine = new Array(
-    ['svg/user_main.svg'],
-    ['svg/rockstar_main.svg'],
-    ['svg/robot_main.svg'],
-    ['svg/spock_main.svg'],
-    ['svg/toilet-paper_main.svg'],
-    ['svg/lizard_main.svg'],
-    ['svg/scissor_main.svg']
-);
-
-
-
 
 // función para definir los iconos del array imagesIconsUser
 function selectedIcons(player, icon){
@@ -315,10 +300,16 @@ function counterAnimation(element) {
 }
 
 // función para rotar los iconos cuando se hace click en alguna opción 
+// indexUSer para rotar los iconos del Usuario en modo random
+// indexMachine para rotar los iconos de Machine en modo random
+// se hacen 2 variables de rotación de iconos para que no quede igual en los dos al mismo tiempo
+
 function rotateimagesIconsUser(){
-    var index = Math.floor((Math.random() * imagesIconsUser.length));
-    document.getElementById("user").src = imagesIconsUser[index][0];
-    document.getElementById("robot").src = imagesIconsMachine[index][0];
+    var indexUser = Math.floor((Math.random() * imagesIconsUser.length));
+    document.getElementById("user").src = imagesIconsUser[indexUser][0];
+
+    var indexMachine = Math.floor((Math.random() * imagesIconsUser.length));
+    document.getElementById("robot").src = imagesIconsUser[indexMachine][0];
 }
 
 
