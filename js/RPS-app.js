@@ -544,10 +544,8 @@ function genericResults(colorBackground, result){
             <h1>${result}</h1>
             <h2>${namePlayer || noNamePlayer}: ${counterHuman}</h2>
             <h2>MACHINE: ${counterMachine}</h2>
-            <br>
             <h5>${summaryResults()}</h5>
             <button class="boton" onclick="currentGame()">WANNA REMATCH, ${namePlayer || noNamePlayer}?</button>
-            <br>
             <button class="boton" onclick="newGame()">NEW PLAYER!</button>
             `;
         },500);      

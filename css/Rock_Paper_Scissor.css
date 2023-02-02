@@ -570,6 +570,7 @@ h2 {
     font-size: 5vh;
     font-weight: 900;
     padding: 0.5vh 0;
+    line-height: 5vh;
 }
 h3 {
     color: var(--amarillo);
@@ -587,7 +588,14 @@ h5 {
     color: var(--blanco);
     font-size: 1.9vh;
     font-weight: 700; 
-    line-height: 0.75vh;
+    line-height: 1vh;
+    padding-top: 0.25em;
+}
+/* Ajuste para altura de interlinea en firefox */
+@-moz-document url-prefix() {
+   h5 {
+        line-height: 2.9vh;
+    }
 }
 
 /* INICIO - POP-UP CONTENT */
