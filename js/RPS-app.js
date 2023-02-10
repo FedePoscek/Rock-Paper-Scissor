@@ -549,10 +549,10 @@ function genericResults(colorBackground, result){
 
 // disparador de pantalla final y paso los parametros para ganador o perdedor
 function counterResults() {
-    if (counterHuman === 1) {
+    if (counterHuman === 3) {
         startConfettiInner();
         genericResults("rgba(var(--verde-RGB), 0.9)", "YOU WON!!");
-    } else if (counterMachine === 1) {
+    } else if (counterMachine === 3) {
         startStormInner();
         genericResults("rgba(var(--gris_RGB), 0.9)","<span style='text-shadow: 0.03em 0.03em #969696';>YOU LOST!!</span>");
     } else {
