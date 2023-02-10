@@ -4,6 +4,7 @@
     --violeta-oscuro-RGB: 27, 0, 48;
     --violeta-oscuro-degrade: #480e74;
     --violeta-medio: #3E016D;
+    --violeta-medio-RGB: 62, 1, 109;
     --violeta-claro: #A500F8;
     --rojo: #FF0059;
     --rojo-RGB: 255, 0, 89;
@@ -13,6 +14,7 @@
     --amarillo: #FFCA00;
     --blanco: white;
     --negro: black;
+    --gris_RGB: 60, 60, 60;
     --negro_RGB: 0, 0, 0;
     overflow-x: hidden;
 }
@@ -471,6 +473,7 @@ hr.signLine {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    backdrop-filter: grayscale(100%);
 }
 
 h1 {

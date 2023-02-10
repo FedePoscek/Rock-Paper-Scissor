@@ -96,6 +96,19 @@ var imagesIconsUser = new Array(
     ['svg/lizard_main.svg']
 );
 
+// función para rotar los iconos cuando se hace click en alguna opción 
+// indexUSer para rotar los iconos del Usuario en modo random
+// indexMachine para rotar los iconos de Machine en modo random
+// se hacen 2 variables de rotación de iconos para que no quede igual en los dos al mismo tiempo
+
+function rotateimagesIconsUser(){
+    var indexUser = Math.floor((Math.random() * imagesIconsUser.length));
+    document.getElementById("user").src = imagesIconsUser[indexUser][0];
+
+    var indexMachine = Math.floor((Math.random() * imagesIconsUser.length));
+    document.getElementById("robot").src = imagesIconsUser[indexMachine][0];
+}
+
 // función para definir los iconos del array imagesIconsUser
 function selectedIcons(player, icon){
     player.src = imagesIconsUser[icon];
@@ -234,6 +247,8 @@ function currentGame() {
     counterAnimation(robot);
     activateButtons();
         console.log("Seguimos!");
+    stopConfettiInner();
+    stopStormInner();
 }
 
 
@@ -299,18 +314,7 @@ function counterAnimation(element) {
     });
 }
 
-// función para rotar los iconos cuando se hace click en alguna opción 
-// indexUSer para rotar los iconos del Usuario en modo random
-// indexMachine para rotar los iconos de Machine en modo random
-// se hacen 2 variables de rotación de iconos para que no quede igual en los dos al mismo tiempo
 
-function rotateimagesIconsUser(){
-    var indexUser = Math.floor((Math.random() * imagesIconsUser.length));
-    document.getElementById("user").src = imagesIconsUser[indexUser][0];
-
-    var indexMachine = Math.floor((Math.random() * imagesIconsUser.length));
-    document.getElementById("robot").src = imagesIconsUser[indexMachine][0];
-}
 
 
 // función para random de elección máquina
@@ -322,7 +326,7 @@ function randomNumber(min, max){
 
 // función según la elección humano
 function Humano(choiceHuman) {
-   
+
     namePlayer = (document.getElementById('inputName').value).toUpperCase();
 
     //funciones para cambios de icono Machine - si no los defino como función siempre muestra la imagen de la última variable (en este caso: rock);
@@ -340,8 +344,9 @@ function Humano(choiceHuman) {
     }
 
     rotateimagesIconsUser();
+    
     fin = setInterval(rotateimagesIconsUser,35);
-    setTimeout(pararAnimacion, 400);
+    setTimeout(pararAnimacion, 500);
 
     // función para definir si gana Roca, Papel o Tijera y sus consecuencias
     // el setTimeout espera a la animación de las opciones
@@ -539,16 +544,17 @@ function genericResults(colorBackground, result){
             <button class="boton" onclick="currentGame()">WANNA REMATCH, ${namePlayer || noNamePlayer}?</button>
             <button class="boton" onclick="newGame()">NEW PLAYER!</button>
             `;
-        },500);      
+        },600);      
 }
-
 
 // disparador de pantalla final y paso los parametros para ganador o perdedor
 function counterResults() {
-    if (counterHuman === 3) {
-        genericResults("rgba(var(--verde-RGB), 0.8)", "YOU WON!!");
-    } else if (counterMachine === 3) {
-            genericResults("rgba(var(--rojo-RGB), 0.8)", "YOU LOST!!");
+    if (counterHuman === 1) {
+        startConfettiInner();
+        genericResults("rgba(var(--verde-RGB), 0.9)", "YOU WON!!");
+    } else if (counterMachine === 1) {
+        startStormInner();
+        genericResults("rgba(var(--gris_RGB), 0.9)","<span style='text-shadow: 0.03em 0.03em #969696';>YOU LOST!!</span>");
     } else {
         console.log("Sigue el juego");
     }
