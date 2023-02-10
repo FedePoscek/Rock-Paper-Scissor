@@ -5,7 +5,9 @@ var stopStormInner; //call to stop adding storm
 var removeStormInner; //call to stop the storm animation and remove all storm immediately
 
 
-    var colors = ["#EAECEE", "#ABB2B9", "#566573", "#273746", "#CACFD2"]
+    var colors = ["#ABB2B9", "#808B96", "#566573", "#273746", "#1C2833"]
+
+    // var colors = ["#EAECEE", "#CACFD2", "#ABB2B9", "#566573", "#273746"]
 
 	// var colors = ["DodgerBlue", "OliveDrab", "Gold", "Pink", "SlateBlue", "LightBlue", "Violet", "PaleGreen", "SteelBlue", "SandyBrown", "Chocolate", "Crimson"]
 	var streamingStorm = false;
